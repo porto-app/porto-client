@@ -2,5 +2,8 @@
 
 ## Team Members
 
--   Lawrence
--   Andy
+- Lawrence Hau
+- Andy Zhong
+- Roxie Schnoor
+- Zak Rehbein
+- Kim Kruedelbach
