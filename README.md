@@ -6,4 +6,7 @@
 - Andy Zhong
 - Roxie Schnoor
 - Zak Rehbein
-- Kim Kruedelbach
+- Kimberly Kruedelbach
+
+
+
