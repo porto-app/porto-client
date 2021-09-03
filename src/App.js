@@ -1,5 +1,9 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+//import { } from 'react-router-dom'
+//import { } from 'react-bootstrap'
+
+
 import Header from './Components/Header.jsx';
 import Footer from './Components/Footer.jsx';
 import Main from './Components/Main';
@@ -8,7 +12,7 @@ import Main from './Components/Main';
 
 function App() {
   return (
-    <div className="App">
+    <div>
      <header>
         <Header />
      </header>
