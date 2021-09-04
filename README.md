@@ -2,7 +2,7 @@
 
 ## Team Members
 
-- Lawrence Christopher Hau
+- Lawrence Hau
 - Andy Zhong
 - Roxie Schnoor
 - Zak Rehbein
