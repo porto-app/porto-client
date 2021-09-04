@@ -1,0 +1,38 @@
+.App {
+  text-align: center;
+}
+
+body {
+  background-color: rgb(231, 239, 253);
+}
+
+.header {
+  background-color: cornflowerblue;
+  color: white;
+  padding: 10px 0px;
+}
+
+.me-auto {
+  margin: 0 auto;
+}
+
+.searchMain {
+  margin: 10em 0px;
+}
+
+.searchField {
+  width: 500px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 1px solid cornflowerblue;
+}
+
+.searchButton {
+  margin-left: 15px;
+  height: 37px;
+}
+
+.aboutUs {
+  margin-top: 5em;
+}
