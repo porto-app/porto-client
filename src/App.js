@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './Components/Header';
@@ -12,9 +12,12 @@ import Footer from './Components/Footer.jsx';
 
 
 function App() {
+
+    const [profiles, setProfiles] = useState([])
+
     return (
         <div className="App">
-            <DataContext.Provider value={{}}>
+            <DataContext.Provider value={{ profiles, setProfiles }}>
                 <Router>
                 <Header />
                 <Navi />
