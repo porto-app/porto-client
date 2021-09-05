@@ -36,3 +36,8 @@ body {
 .aboutUs {
   margin-top: 5em;
 }
+
+.preview-card {
+    display: inline-block;
+    padding: 2rem;
+}
