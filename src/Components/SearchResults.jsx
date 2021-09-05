@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import PreviewCard from './PreviewCard';
 import { DataContext } from './DataContext';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 
 function SearchResults() {
