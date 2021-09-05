@@ -10,6 +10,45 @@ function SearchResults() {
     const { setProfiles } = useContext(DataContext);
     const placeholderPic = "https://a.ltrbxd.com/avatar/twitter/4/3/8/3/8/2/shard/http___pbs.twimg.com_profile_images_959679433505497089__0ShmWMC.jpg?k=cd3effc45f"
 
+    const fakeResponseData = [
+        {
+            name: "Andy Zhong",
+            title: "Software Engineer",
+            location: "Boston",
+            url: placeholderPic
+        },
+        {
+            name: "Kimberly Kruedelbach",
+            title: "Software Engineer",
+            location: "New York",
+            url: placeholderPic
+        },
+        {
+            name: "Lawrence Hau",
+            title: "Software Engineer",
+            location: "New York",
+            url: placeholderPic
+        },
+        {
+            name: "Roxie Schnoor",
+            title: "Software Engineer",
+            location: "California",
+            url: placeholderPic
+        },
+        {
+            name: "Zachary Rehbein",
+            title: "Software Engineer",
+            location: "Boston",
+            url: placeholderPic
+        },
+        {
+            name: "Spongebob Squarepants",
+            title: "Frycook",
+            location: "Bikini Bottom",
+            url: placeholderPic
+        },
+    ]
+
     useEffect(() => {
         getAllProfiles()
     }, [])
@@ -21,7 +60,7 @@ function SearchResults() {
             const url =
                 process.env.NODE_ENV === 'production'
                     ? `https://deployed-heroku-api.com/profiles`
-                    : `http://localhost:4000/profiles`
+                    : `http://localhost:5000/profiles`
 
             const allProfiles = await axios(url)
             setProfiles(allProfiles.data)
@@ -30,51 +69,24 @@ function SearchResults() {
         }
     }
 
+    // fakeResponseData will be replaced by the real response data once available.
+    let listOfProfiles = fakeResponseData.map((profile, index) => {
+        return (
+            <PreviewCard
+                name={profile.name}
+                title={profile.title}
+                location={profile.location}
+                url={profile.url}
+                key = {index}
+            />
+        )
+    })
+
     return (
         <Container>
             <Row>
                 <Col>
-                    <PreviewCard
-                        name="Andy Zhong"
-                        title="Software Engineer"
-                        location="Boston"
-                        url={placeholderPic}
-                    />
-
-                    <PreviewCard
-                        name="Kimberly Kruedelbach"
-                        title="Software Engineer"
-                        location="New York"
-                        url={placeholderPic}
-                    />
-
-                    <PreviewCard
-                        name="Lawrence Hau"
-                        title="Software Engineer"
-                        location="New York"
-                        url={placeholderPic}
-                    />
-
-                    <PreviewCard
-                        name="Roxie Schnoor"
-                        title="Software Engineer"
-                        location="California"
-                        url={placeholderPic}
-                    />
-
-                    <PreviewCard
-                        name="Zachary Rehbein"
-                        title="Software Engineer"
-                        location="Arizona"
-                        url={placeholderPic}
-                    />
-
-                    <PreviewCard
-                        name="Random Man"
-                        title="Software Engineer"
-                        location="Kansas"
-                        url={placeholderPic}
-                    />
+                    {listOfProfiles}
                 </Col>
             </Row>
         </Container >
