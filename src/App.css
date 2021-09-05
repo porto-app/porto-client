@@ -36,6 +36,7 @@ body {
   margin-top: 5em;
 }
 
+
 .contactButton {
   font-family: apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   background-color: rgb(100,150,237);
@@ -79,4 +80,9 @@ h2 {
   max-height: 250px;
   margin: 3rem;
   border-radius: 40px;
+}
+.preview-card {
+    display: inline-block;
+    padding: 2rem;
+
 }

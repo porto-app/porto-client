@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap'
 
 function Main(props) {
@@ -14,7 +15,9 @@ function Main(props) {
                    value={search}
                    onChange={(e) => setSearch(e.target.value)}
             />
-            <Button className="searchButton" variant="outline-primary">Search</Button>{' '}
+            <Link to={`/searchResults`}>
+            <Button className="searchButton" variant="outline-primary">Search</Button>
+            </Link>
         </div>
     );
 }
