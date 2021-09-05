@@ -14,7 +14,7 @@ import Footer from './Components/Footer.jsx';
 function App() {
     return (
         <div>
-            <DataContext.Provider>
+            <DataContext.Provider value={{}}>
                 <Router>
                 <Header />
                 <Navi />
