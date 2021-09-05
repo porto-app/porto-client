@@ -1,25 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap'
+import axios from 'axios';
 
 function Main(props) {
 
     const [search, setSearch] = useState('')
+    const [profiles, setProfiles] = useState([])
 
     useEffect(() => {
         getAllProfiles()
     }, [])
 
-    const getAllProfiles = () => {
-        console.log("Retrieving all profiles...");
+    const getAllProfiles = async () => {
+        console.log("Attempting to retrieve all profiles...")
 
-        const url = `https://placeholder.com`
+        try {
+            const url =
+                process.env.NODE_ENV === 'production'
+                    ? `https://deployed-heroku-api.com/profiles`
+                    : `http://localhost:4000/profiles`
 
-        fetch(url)
-            .then(res => res.json())
-            .then(res => {
-                console.warn("API call was successful.", res);
-            })
-            .catch(console.warn("API call isn't fully set up yet."))
+            const allProfiles = await axios(url)
+            setProfiles(allProfiles.data)
+        } catch (error) {
+            console.warn("API call isn't fully set up yet.")
+        }
     }
 
     return (
