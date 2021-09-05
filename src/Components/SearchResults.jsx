@@ -1,5 +1,6 @@
 import React, { useEffect, useContext } from 'react';
-import { DataContext } from './DataContext'
+import PreviewCard from './PreviewCard';
+import { DataContext } from './DataContext';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import axios from 'axios';
 
@@ -7,6 +8,7 @@ function SearchResults() {
 
     // AZ: Similar to useState, but the state is defined in App and stored in useContext
     const { setProfiles } = useContext(DataContext);
+    const placeholderPic = "https://a.ltrbxd.com/avatar/twitter/4/3/8/3/8/2/shard/http___pbs.twimg.com_profile_images_959679433505497089__0ShmWMC.jpg?k=cd3effc45f"
 
     useEffect(() => {
         getAllProfiles()
@@ -32,74 +34,50 @@ function SearchResults() {
         <Container>
             <Row>
                 <Col>
-                    <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="#" />
-                    <Card.Body>
-                    <Card.Title>Andy Zhong</Card.Title>
-                    <Card.Text>Boston || Software Engineer</Card.Text>
-                    <Button variant="primary">User Profile</Button>
-                    </Card.Body>
-                    </Card>
-                </Col>
-                <Col>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src="#" />
-                        <Card.Body>
-                        <Card.Title>Kimberly Kruedelbach</Card.Title>
-                        <Card.Text>New York || Software Engineer</Card.Text>
-                        <Button variant="primary">User Profile</Button>
-                        </Card.Body>
-                    </Card>
+                    <PreviewCard
+                        name="Andy Zhong"
+                        title="Software Engineer"
+                        location="Boston"
+                        url={placeholderPic}
+                    />
+
+                    <PreviewCard
+                        name="Kimberly Kruedelbach"
+                        title="Software Engineer"
+                        location="New York"
+                        url={placeholderPic}
+                    />
+
+                    <PreviewCard
+                        name="Lawrence Hau"
+                        title="Software Engineer"
+                        location="New York"
+                        url={placeholderPic}
+                    />
+
+                    <PreviewCard
+                        name="Roxie Schnoor"
+                        title="Software Engineer"
+                        location="California"
+                        url={placeholderPic}
+                    />
+
+                    <PreviewCard
+                        name="Zachary Rehbein"
+                        title="Software Engineer"
+                        location="Arizona"
+                        url={placeholderPic}
+                    />
+
+                    <PreviewCard
+                        name="Random Man"
+                        title="Software Engineer"
+                        location="Kansas"
+                        url={placeholderPic}
+                    />
                 </Col>
             </Row>
-
-            <Row>
-                <Col>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src="#" />
-                        <Card.Body>
-                        <Card.Title>Lawrence Hau</Card.Title>
-                        <Card.Text>New York || Software Engineer</Card.Text>
-                        <Button variant="primary">User Profile</Button>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src="#" />
-                        <Card.Body>
-                        <Card.Title>Roxie Schnoor</Card.Title>
-                        <Card.Text>California || Software Engineer</Card.Text>
-                        <Button variant="primary">User Profile</Button>
-                        </Card.Body>
-                    </Card>
-                </Col>
-            </Row>
-
-            <Row>
-                <Col>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src="#" />
-                        <Card.Body>
-                        <Card.Title>Zachary Rehbein</Card.Title>
-                        <Card.Text>Arizona || Software Engineer</Card.Text>
-                        <Button variant="primary">User Profile</Button>
-                        </Card.Body>
-                    </Card>
-                </Col>
-
-                <Col>
-                    <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="#" />
-                    <Card.Body>
-                    <Card.Title>Random Man</Card.Title>
-                    <Card.Text>Kansas || Software Engineer</Card.Text>
-                    <Button variant="primary">User Profile</Button>
-                    </Card.Body>
-                    </Card>
-                </Col>
-            </Row>
-        </Container>
+        </Container >
     )
 }
 
