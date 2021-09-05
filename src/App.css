@@ -15,7 +15,6 @@ body {
 .me-auto {
   margin: 0 auto;
 }
-
 .searchMain {
   margin: 10em 0px;
 }
@@ -37,7 +36,53 @@ body {
   margin-top: 5em;
 }
 
+
+.contactButton {
+  font-family: apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  background-color: rgb(100,150,237);
+  color: white;
+  border-radius: 4px;
+  font-size: 18px;
+  align-items: center;
+  margin-left: 50px;
+  margin-top: 30px;
+
+}
+.resumeButton {
+  font-family: apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  background-color: rgb(100,150,237);
+  color: white;
+  border-radius: 4px;
+  font-size: 18px;
+  align-items: center;
+  margin-left: 20px;
+  margin-top: 30px;
+}
+h2 {
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 22px;
+  color: cornflowerblue;
+  padding-left: 20px;
+
+}
+.myProfile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+ 
+}
+.pic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 200px;
+  max-height: 250px;
+  margin: 3rem;
+  border-radius: 40px;
+}
 .preview-card {
     display: inline-block;
     padding: 2rem;
+
 }
