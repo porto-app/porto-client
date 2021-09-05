@@ -60,7 +60,7 @@ function SearchResults() {
             const url =
                 process.env.NODE_ENV === 'production'
                     ? `https://deployed-heroku-api.com/profiles`
-                    : `http://localhost:4000/profiles`
+                    : `http://localhost:5000/profiles`
 
             const allProfiles = await axios(url)
             setProfiles(allProfiles.data)
