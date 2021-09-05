@@ -13,7 +13,7 @@ import Footer from './Components/Footer.jsx';
 
 function App() {
     return (
-        <div>
+        <div className="App">
             <DataContext.Provider value={{}}>
                 <Router>
                 <Header />
