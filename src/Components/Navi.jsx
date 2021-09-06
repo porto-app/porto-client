@@ -6,7 +6,7 @@ function Navi() {
 
     return (
         <div className="navigation">
-            <Navbar bg="primary" variant="dark">
+            <Navbar bg="rgb(0, 0, 110)" variant="dark">
                 <Container>
                     <Nav className="me-auto">
                         <Nav.Link href="/">Home</Nav.Link>
