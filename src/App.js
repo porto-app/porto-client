@@ -24,7 +24,7 @@ function App() {
                 <Navi />
                 <Route exact path='/' component={Main} />
                 <Route exact path='/about' component={About} />
-                <Route exact path='/profile' component={Profile} />
+                <Route exact path='/profile/:id' component={Profile} />
                 <Route exact path='/searchresults' component={SearchResults} />
                 <Route exact path='/createprofile' component={CreateProfile} />
                 <Footer />
