@@ -37,7 +37,7 @@ body {
 }
 
 .contactButton {
-  font-family: apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: 'Montserrat', sans-serif;
   background-color: rgb(100,150,237);
   color: white;
   border-radius: 4px;
@@ -48,7 +48,7 @@ body {
 }
 
 .resumeButton {
-  font-family: apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: 'Montserrat', sans-serif;
   background-color: rgb(100,150,237);
   color: white;
   border-radius: 4px;
@@ -59,7 +59,7 @@ body {
 }
 
 h2 {
-  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: 'Montserrat', sans-serif;
   font-size: 22px;
   color: cornflowerblue;
   padding-left: 20px;
@@ -95,4 +95,8 @@ h2 {
 .create-profile-title {
     text-align: center;
     margin: 2rem;
+}
+
+h1 {
+  font-family: 'Courgette', cursive;
 }
