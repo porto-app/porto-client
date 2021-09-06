@@ -7,7 +7,7 @@ import axios from 'axios';
 function SearchResults() {
 
     // AZ: Similar to useState, but the state is defined in App and stored in useContext
-    const { setProfiles } = useContext(DataContext);
+    const { profiles, setProfiles } = useContext(DataContext);
     const placeholderPic = "https://a.ltrbxd.com/avatar/twitter/4/3/8/3/8/2/shard/http___pbs.twimg.com_profile_images_959679433505497089__0ShmWMC.jpg?k=cd3effc45f"
 
     const fakeResponseData = [
@@ -62,22 +62,27 @@ function SearchResults() {
                     ? `https://deployed-heroku-api.com/profiles`
                     : `http://localhost:5000/profiles`
 
-            const allProfiles = await axios(url)
-            setProfiles(allProfiles.data)
+            const response = await axios(url)
+            setProfiles(response.data)
+            console.log(response.data);
+            console.log("response IS", response);
         } catch (error) {
             console.warn("API call isn't fully set up yet.")
         }
     }
 
     // fakeResponseData will be replaced by the real response data once available.
-    let listOfProfiles = fakeResponseData.map((profile, index) => {
+    let listOfProfiles = profiles.map((profile, index) => {
         return (
             <PreviewCard
-                name={profile.name}
+                id={profile._id}
+                firstName={profile.firstName}
+                middleName={profile.middleName}
+                lastName={profile.lastName}
                 title={profile.title}
                 location={profile.location}
-                url={profile.url}
-                key = {index}
+                url={profile.urlPic}
+                key={profile._id}
             />
         )
     })
