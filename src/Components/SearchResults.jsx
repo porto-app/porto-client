@@ -74,6 +74,7 @@ function SearchResults() {
     let listOfProfiles = profiles.map((profile, index) => {
         return (
             <PreviewCard
+                dataObject={profile}
                 id={profile._id}
                 firstName={profile.firstName}
                 middleName={profile.middleName}

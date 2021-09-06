@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import { Card, Button } from 'react-bootstrap';
 
 
 function PreviewCard(props) {
+    console.log("props in Preview Card is", props);
+
+    const [currentProfile, setCurrentProfile] = useState("");
+
+    const handleViewProfile = () => {
+        setCurrentProfile(props.id);
+    }
 
     return (
         <div className="preview-card">
@@ -11,7 +19,9 @@ function PreviewCard(props) {
                     <Card.Body>
                     <Card.Title>{props.firstName} {props.middleName} {props.lastName} </Card.Title>
                     <Card.Text>{props.location} || {props.title}</Card.Text>
-                    <Button variant="primary">User Profile</Button>
+                    <Link to={`/profile/${props.id}`} key={props.id}>
+                        <Button variant="primary" onClick={handleViewProfile}>View Profile</Button>
+                    </Link>
                 </Card.Body>
             </Card>
         </div>
