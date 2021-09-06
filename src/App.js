@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Header from './Components/Header';
-import Navi from './Components/Navi';
-import Main from './Components/Main';
+import { DataContext } from './Components/DataContext';
 import About from './Components/About'
+import CreateProfile from './Components/CreateProfile';
+import Footer from './Components/Footer.jsx';
+import Header from './Components/Header';
+import Main from './Components/Main';
+import Navi from './Components/Navi';
 import Profile from './Components/Profile'
 import SearchResults from './Components/SearchResults';
-import { DataContext } from './Components/DataContext';
-import Footer from './Components/Footer.jsx';
+import './App.css';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
                 <Route exact path='/about' component={About} />
                 <Route exact path='/profile' component={Profile} />
                 <Route exact path='/searchresults' component={SearchResults} />
+                <Route exact path='/createprofile' component={CreateProfile} />
                 <Footer />
                 </Router>
             </ DataContext.Provider>

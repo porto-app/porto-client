@@ -16,7 +16,11 @@ function Main(props) {
                    onChange={(e) => setSearch(e.target.value)}
             />
             <Link to={`/searchResults`}>
-            <Button className="searchButton" variant="outline-primary">Search</Button>
+                <Button className="searchButton" variant="outline-primary">Search</Button>
+            </Link>
+            <br />
+            <Link to={`/createprofile`}>
+                <Button variant="success">Create New Profile</Button>
             </Link>
         </div>
     );
