@@ -64,10 +64,9 @@ function SearchResults() {
 
             const response = await axios(url)
             setProfiles(response.data)
-            console.log(response.data);
-            console.log("response IS", response);
+            console.log("Response data: ", response);
         } catch (error) {
-            console.warn("API call isn't fully set up yet.")
+            console.warn("Error when retrieving all profiles.")
         }
     }
 
