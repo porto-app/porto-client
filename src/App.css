@@ -24,6 +24,8 @@ body {
   background-color: rgb(115, 233, 203);
   color: rgb(13, 23, 83);
   padding: 10px 0px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .me-auto {
