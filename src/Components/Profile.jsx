@@ -49,6 +49,25 @@ function Profile(props) {
         }
     }
 
+    const submitEdit = async () => {
+        console.log("Attempting to edit one profile...")
+        let firstName = "Spongebob"
+
+        try {
+            const url =
+                process.env.NODE_ENV === 'production'
+                    ? `https://deployed-heroku-api.com/profiles/${currentProfileId}`
+                    : `http://localhost:5000/profiles/${currentProfileId}`
+
+            axios.put(url, {
+                firstName
+            });
+            console.log("Edit successful!");
+        } catch (error) {
+            console.warn("Error when editing one profile.")
+        }
+    }
+
     return (
         <div>
             <div className="myProfile">
@@ -64,7 +83,9 @@ function Profile(props) {
                 <button className="resumeButton">Resume</button>
             </div>
 
-            <Button variant="warning">Edit Profile</Button>
+            <Link to={`/searchresults`} key={props.id}>
+                <Button variant="warning" onClick={submitEdit}>Edit Profile</Button>
+            </Link>
             <Link to={`/searchresults`} key={props.id}>
                 <Button variant="danger" onClick={handleDelete}>Delete Profile</Button>
             </Link>
