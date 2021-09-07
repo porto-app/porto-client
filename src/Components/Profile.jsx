@@ -1,5 +1,5 @@
-import React, { useEffect, useContext } from 'react';
-import { Button } from 'react-bootstrap';
+import React, { useState, useEffect, useContext } from 'react';
+import { Button, Modal, Form } from 'react-bootstrap';
 import { DataContext } from './DataContext'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -7,14 +7,18 @@ import axios from 'axios';
 
 function Profile(props) {
 
-
     const { currentProfileId, activeProfile, setActiveProfile } = useContext(DataContext);
+
+    // Modal Commands
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     console.log("currentProfile id is", currentProfileId);
 
     useEffect(() => {
         getOneProfile()
-    }, [])
+    }, [show])
 
     const getOneProfile = async () => {
         console.log("Attempting to retrieve one profile...")
@@ -51,7 +55,9 @@ function Profile(props) {
 
     const submitEdit = async () => {
         console.log("Attempting to edit one profile...")
-        let firstName = "Spongebob"
+        let firstNameEdited = document.querySelector(".firstNameEdit").value
+        let middleNameEdited = document.querySelector(".middleNameEdit").value
+        let lastNameEdited = document.querySelector(".lastNameEdit").value
 
         try {
             const url =
@@ -60,7 +66,9 @@ function Profile(props) {
                     : `http://localhost:5000/profiles/${currentProfileId}`
 
             axios.put(url, {
-                firstName
+                firstName: firstNameEdited,
+                middleName: middleNameEdited,
+                lastName: lastNameEdited
             });
             console.log("Edit successful!");
         } catch (error) {
@@ -70,6 +78,36 @@ function Profile(props) {
 
     return (
         <div>
+
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Edit Profile</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form.Group className="mb-3" controlId="formGroupFirstName">
+                        <Form.Label>First Name</Form.Label>
+                        <Form.Control className="firstNameEdit"/>
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formGroupMiddleName">
+                        <Form.Label>Middle Name</Form.Label>
+                        <Form.Control className="middleNameEdit"/>
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formGroupLastName">
+                        <Form.Label>Last Name</Form.Label>
+                        <Form.Control className="lastNameEdit"/>
+                    </Form.Group>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>Close</Button>
+                    <Button variant="primary" onClick={() => {
+                        submitEdit()
+                        handleClose()
+                        getOneProfile()
+                    }}>Save Changes</Button>
+                </Modal.Footer>
+            </Modal>
+
             <div className="myProfile">
                 <img className="pic" src="https://user-images.githubusercontent.com/86509310/132135371-0e04c8fd-5780-4b8d-84f6-b6e8ffb12994.png" alt="" />
                 <h2>
@@ -83,9 +121,9 @@ function Profile(props) {
                 <button className="resumeButton">Resume</button>
             </div>
 
-            <Link to={`/searchresults`} key={props.id}>
-                <Button variant="warning" onClick={submitEdit}>Edit Profile</Button>
-            </Link>
+            <Button variant="warning" onClick={handleShow}>
+                Edit Profile
+            </Button>
             <Link to={`/searchresults`} key={props.id}>
                 <Button variant="danger" onClick={handleDelete}>Delete Profile</Button>
             </Link>
