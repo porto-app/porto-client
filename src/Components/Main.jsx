@@ -20,7 +20,7 @@ function Main(props) {
             </Link>
             <br />
             <Link to={`/createprofile`}>
-                <Button variant="success">Create New Profile</Button>
+                <Button variant="primary" className="create-button">Create New Profile</Button>
             </Link>
         </div>
     );

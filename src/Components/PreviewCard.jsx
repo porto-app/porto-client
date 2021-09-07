@@ -20,7 +20,7 @@ function PreviewCard(props) {
                     <Card.Title>{props.firstName} {props.middleName} {props.lastName} </Card.Title>
                     <Card.Text>{props.location} || {props.title}</Card.Text>
                     <Link to={`/profile/${props.id}`} key={props.id}>
-                        <Button variant="primary" onClick={handleViewProfile}>View Profile</Button>
+                        <Button variant="primary" className ="previewButton" onClick={handleViewProfile}>View Profile</Button>
                     </Link>
                 </Card.Body>
             </Card>

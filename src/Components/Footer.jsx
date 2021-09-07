@@ -5,8 +5,8 @@ function Footer(props) {
     return (
         <div className="footer">
              <Link to='/'><h1 className="main-footer-title">Porto</h1></Link>
-           <p>Built by: Andy, Kim, Lawrence, Roxie, and Zak</p>
-           <h4>Copyright 2021</h4>
+           <p className="footer-names">Andy Zhong, Kim Kruedelbach, Lawrence Hau, Roxie Schnoor, and Zak Rehbein</p>
+           <h4>&copy; 2021</h4>
         </div>
     );
 }
