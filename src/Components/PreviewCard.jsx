@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Link } from 'react-router-dom';
+import { DataContext } from './DataContext'
 import { Card, Button } from 'react-bootstrap';
 
 
 function PreviewCard(props) {
-    const [currentProfile, setCurrentProfile] = useState("");
+
+    const { setCurrentProfileId } = useContext(DataContext);
 
     const handleViewProfile = () => {
-        setCurrentProfile(props.id);
+        setCurrentProfileId(props.id);
     }
 
     return (

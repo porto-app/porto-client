@@ -1,11 +1,15 @@
-import React, { useState ,useEffect } from 'react';
-import axios from 'axios';
+import React, { useEffect, useContext } from 'react';
 import { Button } from 'react-bootstrap';
+import { DataContext } from './DataContext'
+import axios from 'axios';
 
 
 function Profile(props) {
 
-    const [activeProfile, setActiveProfile] = useState("");
+
+    const { currentProfileId, activeProfile, setActiveProfile } = useContext(DataContext);
+
+    console.log("currentProfile id is", currentProfileId);
 
     useEffect(() => {
         getOneProfile()
@@ -17,8 +21,8 @@ function Profile(props) {
         try {
             const url =
                 process.env.NODE_ENV === 'production'
-                    ? `https://deployed-heroku-api.com/profile/:id`
-                    : `http://localhost:5000/profiles/613607edab5ce26f5c7d27a0`
+                    ? `https://deployed-heroku-api.com/profiles/${currentProfileId}`
+                    : `http://localhost:5000/profiles/${currentProfileId}`
 
             const response = await axios(url)
             console.log("Response data: ", response);
