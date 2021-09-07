@@ -206,8 +206,17 @@ a:hover {
   padding-bottom: 5em;
   font-size: 20px;
 }
-
 .about-names a {
   text-decoration: none;
   color: #3d6792;
 }
+/* .projectsCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 150px;
+
+  
+
+} */
+
