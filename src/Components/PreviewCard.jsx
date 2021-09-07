@@ -4,8 +4,6 @@ import { Card, Button } from 'react-bootstrap';
 
 
 function PreviewCard(props) {
-    console.log("props in Preview Card is", props);
-
     const [currentProfile, setCurrentProfile] = useState("");
 
     const handleViewProfile = () => {
