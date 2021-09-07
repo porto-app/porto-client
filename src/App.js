@@ -29,6 +29,7 @@ function App() {
                 <Route exact path='/profile/:id' component={Profile} />
                 <Route exact path='/searchresults' component={SearchResults} />
                 <Route exact path='/createprofile' component={CreateProfile} />
+                <Footer />
                 </Router>
             </ DataContext.Provider>
         </div>
