@@ -121,17 +121,17 @@ function Profile(props) {
                 <button className="resumeButton">Resume</button>
             </div>
 
-            <Button variant="warning" onClick={handleShow}>
+            <Button className="editButton" onClick={handleShow}>
                 Edit Profile
             </Button>
             <Link to={`/searchresults`} key={props.id}>
-                <Button variant="danger" onClick={handleDelete}>Delete Profile</Button>
+                <Button className="deleteButton" onClick={handleDelete}>Delete Profile</Button>
             </Link>
 
 
 
             <div className="projectsCard">
-                <Card style={{ width: '18rem' }}>
+                <Card style={{ width: '20rem' }}>
                 <Card.Img variant="top" src="holder.js/100px180" />
                 <Card.Body>
                 <Card.Title>Card Title</Card.Title>
@@ -143,7 +143,7 @@ function Profile(props) {
             </Card.Body>
         </Card>
 
-        <Card style={{ width: '18rem' }}>
+        <Card style={{ width: '20rem' }}>
             <Card.Img variant="top" src="holder.js/100px180" />
             <Card.Body>
             <Placeholder as={Card.Title} animation="glow">
@@ -156,6 +156,7 @@ function Profile(props) {
             <Placeholder.Button variant="primary" xs={6} />
             </Card.Body>
         </Card>
+
         </div>
             </div>
 
