@@ -14,6 +14,8 @@ function Profile(props) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+
+ 
     console.log("currentProfile id is", currentProfileId);
 
     useEffect(() => {
@@ -78,8 +80,7 @@ function Profile(props) {
 
     return (
         <div>
-
-
+                
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Edit Profile</Modal.Title>
@@ -109,16 +110,17 @@ function Profile(props) {
             </Modal>
 
             <div className="myProfile">
-                <img className="pic" src="https://user-images.githubusercontent.com/86509310/132135371-0e04c8fd-5780-4b8d-84f6-b6e8ffb12994.png" alt="" />
+            <img className="pic" src="https://user-images.githubusercontent.com/86509310/132135371-0e04c8fd-5780-4b8d-84f6-b6e8ffb12994.png" alt="" />
+
                 <h2>
                     <div className="name">Name: {activeProfile.firstName} {activeProfile.middleName} {activeProfile.lastName}</div>
                     <div className="title">Title: {activeProfile.title}</div>
                     <div className="location">Location: {activeProfile.location}</div>
                 </h2>
-            </div>
+                </div>
             <div>
                 <button className="contactButton">Contact</button>
-                <button className="resumeButton">Resume</button>
+                <button className="resumeButton">Resume </button>
             </div>
 
             <Button className="editButton" onClick={handleShow}>
@@ -127,44 +129,58 @@ function Profile(props) {
             <Link to={`/searchresults`} key={props.id}>
                 <Button className="deleteButton" onClick={handleDelete}>Delete Profile</Button>
             </Link>
-
-
-
             <div className="projectsCard">
-                <Card style={{ width: '20rem' }}>
+                <Card style={{ width: '50rem' }}>
                 <Card.Img variant="top" src="holder.js/100px180" />
                 <Card.Body>
-                <Card.Title>Card Title</Card.Title>
+                <Card.Title>Project 1</Card.Title>
                 <Card.Text>
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
+        Here is an example of a project that I built using technologies: Javascript, HTML, CSS, React. 
             </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-        </Card>
-
-        <Card style={{ width: '20rem' }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-            <Placeholder as={Card.Title} animation="glow">
-                <Placeholder xs={6} />
-            </Placeholder>
-            <Placeholder as={Card.Text} animation="glow">
-                <Placeholder xs={7} /> <Placeholder xs={4} /> <Placeholder xs={4} />{' '}
-                <Placeholder xs={6} /> <Placeholder xs={8} />
-            </Placeholder>
-            <Placeholder.Button variant="primary" xs={6} />
+            <Button variant="primary">Click here</Button>
             </Card.Body>
         </Card>
 
         </div>
-            </div>
-
-        
-
-
-
-    );
+        <div className="projectsCard">
+                <Card style={{ width: '50rem' }}>
+                <Card.Img variant="top" src="holder.js/100px180" />
+                <Card.Body>
+                <Card.Title>Project 2</Card.Title>
+                <Card.Text>
+        Here is an example of a project that I built using technologies: Javascript, HTML, CSS, React. 
+            </Card.Text>
+            <Button variant="primary">Click here</Button>
+            </Card.Body>
+        </Card>
+        </div>
+        <div className="projectsCard">
+                <Card style={{ width: '50rem' }}>
+                <Card.Img variant="top" src="holder.js/100px180" />
+                <Card.Body>
+                <Card.Title>Project 3</Card.Title>
+                <Card.Text>
+        Here is an example of a project that I built using technologies: Javascript, HTML, CSS, React. 
+            </Card.Text>
+            <Button variant="primary">Click here</Button>
+            </Card.Body>
+        </Card>
+        </div>
+        <div className="projectsCard">
+                <Card style={{ width: '50rem' }}>
+                <Card.Img variant="top" src="holder.js/100px180" />
+                <Card.Body>
+                <Card.Title>Project 4</Card.Title>
+                <Card.Text>
+        Here is an example of a project that I built using technologies: Javascript, HTML, CSS, React. 
+            </Card.Text>
+            <Button variant="primary">Click here</Button>
+            </Card.Body>
+        </Card>
+        </div>
+       </div>
+      
+  );
 }
 
 export default Profile;
