@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import { Button } from 'react-bootstrap';
 import { DataContext } from './DataContext'
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -32,6 +33,22 @@ function Profile(props) {
         }
     }
 
+    const handleDelete = async () => {
+        console.log("Attempting to delete one profile...")
+
+        try {
+            const url =
+                process.env.NODE_ENV === 'production'
+                    ? `https://deployed-heroku-api.com/profiles/${currentProfileId}`
+                    : `http://localhost:5000/profiles/${currentProfileId}`
+
+            axios.delete(url);
+            console.log("Delete successful!");
+        } catch (error) {
+            console.warn("Error when deleting one profile.")
+        }
+    }
+
     return (
         <div>
             <div className="myProfile">
@@ -48,7 +65,9 @@ function Profile(props) {
             </div>
 
             <Button variant="warning">Edit Profile</Button>
-            <Button variant="danger">Delete Profile</Button>
+            <Link to={`/searchresults`} key={props.id}>
+                <Button variant="danger" onClick={handleDelete}>Delete Profile</Button>
+            </Link>
         </div>
     );
 }
