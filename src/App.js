@@ -15,10 +15,12 @@ import './App.css';
 function App() {
 
     const [profiles, setProfiles] = useState([])
+    const [currentProfileId, setCurrentProfileId] = useState("");
+    const [activeProfile, setActiveProfile] = useState("");
 
     return (
         <div className="App">
-            <DataContext.Provider value={{ profiles, setProfiles }}>
+            <DataContext.Provider value={{ profiles, setProfiles, currentProfileId, setCurrentProfileId, activeProfile, setActiveProfile }}>
                 <Router>
                 <Header />
                 <Navi />
