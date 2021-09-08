@@ -7,7 +7,7 @@ import axios from 'axios';
 function SearchResults() {
 
     // AZ: Similar to useState, but the state is defined in App and stored in useContext
-    const { profiles, setProfiles } = useContext(DataContext);
+    const { profiles, setProfiles, search, setSearch, filteredProfiles, setFilteredProfiles } = useContext(DataContext);
     const placeholderPic = "https://a.ltrbxd.com/avatar/twitter/4/3/8/3/8/2/shard/http___pbs.twimg.com_profile_images_959679433505497089__0ShmWMC.jpg?k=cd3effc45f"
 
     const fakeResponseData = [
@@ -50,6 +50,7 @@ function SearchResults() {
     ]
 
     useEffect(() => {
+        console.log("WHAT WAS SEARCH CRITERIA??? : ", search);
         getAllProfiles()
     }, [])
 
@@ -63,8 +64,22 @@ function SearchResults() {
                     : `http://localhost:5000/profiles`
 
             const response = await axios(url)
+            // Returning all response data.
             setProfiles(response.data)
             console.log("Response data: ", response);
+            // Filter response data by search criteria.
+            const responseData = response.data;
+
+            const filteredResults =responseData.filter((profile) => {
+                return profile.location === "Boston"
+            })
+
+            console.log("Filtered results are: ", filteredResults);
+
+            // Store filtered data into a state.
+            setFilteredProfiles(filteredResults)
+
+            // Display on Search Results screen.
         } catch (error) {
             console.warn("Error when retrieving all profiles.")
         }
