@@ -116,7 +116,7 @@ function Profile(props) {
                     <div className="title">Title: {activeProfile.title}</div>
                     <div className="location">Location: {activeProfile.location}</div>
                     <button className="contactButton"><a class="mailto" href={'mailto:' + activeProfile.email}>Contact</a> </button>                 
-                    <button className="resumeButton" href="Resume">Resume {activeProfile.resume}</button>
+                    <button className="resumeButton"><a class="Resume" target="_blank" href={activeProfile.urlResume}>Resume</a> </button>
                 </h2>
             </div>
 

@@ -13,6 +13,7 @@ function CreateProfile() {
     const [title, setTitle] = useState("")
     const [location, setLocation] = useState("")
     const [urlPic, setUrlPic] = useState("")
+    const [urlResume, setUrlResume] = useState("")
     const [Project1Name, setProject1Name] = useState("")
     const [Project1Description, setProject1Description] = useState("")
     const [Project1URL, setProject1URL] = useState("")
@@ -45,6 +46,7 @@ function CreateProfile() {
             title,
             location,
             urlPic,
+            urlResume,
             Project1Name,
             Project1Description,
             Project1URL,
@@ -94,6 +96,10 @@ function CreateProfile() {
 
     const storeUrlPic = (e) => {
         setUrlPic(e.target.value)
+    }
+
+    const storeUrlResume = (e) => {
+        setUrlResume(e.target.value)
     }
 
     const storeProject1Name = (e) => {
@@ -182,6 +188,10 @@ function CreateProfile() {
                     <Form.Group className="mb-3" controlId="formGroupProfilePic">
                         <Form.Label>Profile Pic URL</Form.Label>
                         <Form.Control onChange={storeUrlPic}/>
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formGroupUrlResume">
+                        <Form.Label>Resume URL</Form.Label>
+                        <Form.Control onChange={storeUrlResume}/>
                     </Form.Group>
                     </Col>
                     <Col>
