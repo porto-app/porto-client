@@ -7,3 +7,10 @@
 - Roxie Schnoor
 - Zak Rehbein
 - Kimberly Kruedelbach
+
+
+## Required Node Packages
+
+- react-router-dom
+- react-bootstrap
+- axios

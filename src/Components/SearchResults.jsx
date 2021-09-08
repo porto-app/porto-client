@@ -1,98 +1,101 @@
-import React from "react";
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import React, { useEffect, useContext } from 'react';
+import PreviewCard from './PreviewCard';
+import { DataContext } from './DataContext';
+import { Container, Row, Col } from 'react-bootstrap';
+import axios from 'axios';
 
 function SearchResults() {
 
+    // AZ: Similar to useState, but the state is defined in App and stored in useContext
+    const { profiles, setProfiles } = useContext(DataContext);
+    const placeholderPic = "https://a.ltrbxd.com/avatar/twitter/4/3/8/3/8/2/shard/http___pbs.twimg.com_profile_images_959679433505497089__0ShmWMC.jpg?k=cd3effc45f"
+
+    const fakeResponseData = [
+        {
+            name: "Andy Zhong",
+            title: "Software Engineer",
+            location: "Boston",
+            url: placeholderPic
+        },
+        {
+            name: "Kimberly Kruedelbach",
+            title: "Software Engineer",
+            location: "New York",
+            url: placeholderPic
+        },
+        {
+            name: "Lawrence Hau",
+            title: "Software Engineer",
+            location: "New York",
+            url: placeholderPic
+        },
+        {
+            name: "Roxie Schnoor",
+            title: "Software Engineer",
+            location: "California",
+            url: placeholderPic
+        },
+        {
+            name: "Zachary Rehbein",
+            title: "Software Engineer",
+            location: "Boston",
+            url: placeholderPic
+        },
+        {
+            name: "Spongebob Squarepants",
+            title: "Frycook",
+            location: "Bikini Bottom",
+            url: placeholderPic
+        },
+    ]
+
+    useEffect(() => {
+        getAllProfiles()
+    }, [])
+
+    const getAllProfiles = async () => {
+        console.log("Attempting to retrieve all profiles...")
+
+        try {
+            const url =
+                process.env.NODE_ENV === 'production'
+                    ? `http://porto-app-server.herokuapp.com/profiles`
+                    : `http://localhost:5000/profiles`
+
+            const response = await axios(url)
+            setProfiles(response.data)
+            console.log("Response data: ", response);
+        } catch (error) {
+            console.warn("Error when retrieving all profiles.")
+        }
+    }
+
+    // fakeResponseData will be replaced by the real response data once available.
+    let listOfProfiles = profiles.map((profile, index) => {
+        return (
+            <PreviewCard
+                dataObject={profile}
+                id={profile._id}
+                firstName={profile.firstName}
+                middleName={profile.middleName}
+                lastName={profile.lastName}
+                title={profile.title}
+                location={profile.location}
+                url={profile.urlPic}
+                key={profile._id}
+            />
+        )
+    })
+
     return (
-  <Container>
-  <Row>
-    <Col>
-          <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src="#" />
-          <Card.Body>
-          <Card.Title>Andy Zhong</Card.Title>
-          <Card.Text>
-            New York || Software Engineer
-          </Card.Text>
-          <Button variant="primary">User Profile</Button>
-          </Card.Body>
-          </Card>
-    </Col>
-
-    <Col>
-    <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src="#" />
-          <Card.Body>
-          <Card.Title>Kimberly Kruedelbach</Card.Title>
-          <Card.Text>
-            New York || Software Engineer
-          </Card.Text>
-          <Button variant="primary">User Profile</Button>
-          </Card.Body>
-          </Card>
-    </Col>
-  </Row>
-
-  <Row>
-    <Col>
-    <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src="#" />
-          <Card.Body>
-          <Card.Title>Lawrence Hau</Card.Title>
-          <Card.Text>
-            New York || Software Engineer
-          </Card.Text>
-          <Button variant="primary">User Profile</Button>
-          </Card.Body>
-          </Card>
-    </Col>
-
-    <Col>
-    <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src="#" />
-          <Card.Body>
-          <Card.Title>Roxie Schnoor</Card.Title>
-          <Card.Text>
-            California || Software Engineer
-          </Card.Text>
-          <Button variant="primary">User Profile</Button>
-          </Card.Body>
-          </Card>
-    </Col>
-  </Row>
-
-  <Row>
-    <Col>
-    <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src="#" />
-          <Card.Body>
-          <Card.Title>Zachary Rehbein</Card.Title>
-          <Card.Text>
-            Arizona || Software Engineer
-          </Card.Text>
-          <Button variant="primary">User Profile</Button>
-          </Card.Body>
-          </Card>
-    </Col>
-
-    <Col>
-    <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src="#" />
-          <Card.Body>
-          <Card.Title>Random Man</Card.Title>
-          <Card.Text>
-            Kansas || Software Engineer
-          </Card.Text>
-          <Button variant="primary">User Profile</Button>
-          </Card.Body>
-          </Card>
-    </Col>
-  </Row>
-
-  </Container>
-
+        <Container>
+            <Row>
+                <Col>
+                    {listOfProfiles}
+                </Col>
+            </Row>
+        </Container >
     )
-
 }
 
 export default SearchResults;

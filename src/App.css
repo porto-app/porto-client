@@ -1,23 +1,53 @@
 .App {
   text-align: center;
+  font-family: "Montserrat", sans-serif;
 }
 
 body {
-  background-color: rgb(231, 239, 253);
+  background-color: #e8f4ff;
+}
+
+.footer {
+  background-color: #3d6792;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+.footer a:link,
+a:active,
+a:visited,
+a:hover {
+  text-decoration: none;
+}
+
+.footer-names {
+  padding-top: 15px;
 }
 
 .header {
-  background-color: cornflowerblue;
-  color: white;
-  padding: 10px 0px;
+  background-color: white;
+  color: #3d6792;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-badge {
+  max-height: 200px;
 }
 
 .me-auto {
   margin: 0 auto;
+  color: white !important;
+  font-weight: 600;
 }
-
 .searchMain {
   margin: 10em 0px;
+  color: #3d6792;
 }
 
 .searchField {
@@ -25,14 +55,171 @@ body {
   padding-left: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
-  border: 1px solid cornflowerblue;
+  border: 1px solid #3d6792;
 }
 
 .searchButton {
+  background-color: #3d6792;
+  color: white;
+  border: none;
   margin-left: 15px;
   height: 37px;
+  font-weight: 600;
 }
 
 .aboutUs {
   margin-top: 5em;
+}
+.create-button {
+  background-color: rgb(62, 103, 145);
+  font-size: 18px;
+  border: none;
+  margin: 1rem auto;
+  font-weight: 600;
+}
+
+/*BUTTONS FOR MY PROFILE SECTION*/
+
+.contactButton {
+  font-family: "Montserrat", sans-serif;
+  background-color: rgb(62, 103, 145);
+  color: white;
+  font-weight: 600;
+  border: 0px solid;
+  border-radius: 4px;
+  font-size: 18px;
+  align-items: center;
+  padding: 5px 10px;
+  margin-left: 50px;
+  margin-top: 30px;
+}
+.resumeButton {
+  font-family: "Montserrat", sans-serif;
+  background-color: rgb(62, 103, 145);
+  color: white;
+  font-weight: 600;
+  border: 0px solid;
+  border-radius: 4px;
+  font-size: 18px;
+  align-items: center;
+  padding: 5px 10px;
+  margin-left: 50px;
+  margin-top: 30px;
+}
+.editButton {
+  font-family: "Montserrat", sans-serif;
+  background-color: rgb(62, 103, 145);
+  color: white;
+  font-weight: 600;
+  border-radius: 4px;
+  border: 0px solid;
+  font-size: 18px;
+  align-items: center;
+  padding: 5px 10px;
+  margin-left: 50px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+.deleteButton {
+  font-family: "Montserrat", sans-serif;
+  background-color: rgb(62, 103, 145);
+  color: white;
+  font-weight: 600;
+  border: 0px solid;
+  border-radius: 4px;
+  font-size: 18px;
+  align-items: center;
+  padding: 5px 10px;
+  margin-left: 50px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+/*end of buttons for my profile*/
+
+h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 22px;
+  color: cornflowerblue;
+  padding-left: 20px;
+}
+
+.myProfile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.myProfile h2 {
+  color: #3d6792;
+  text-align: left;
+}
+.pic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 250px;
+  max-height: 250px;
+  margin: 3rem;
+  border-radius: 40px;
+}
+.preview-card {
+  display: inline-block;
+  padding: 2rem;
+}
+
+.previewButton {
+  background-color: #3d6792;
+  color: white;
+  border: none;
+  font-weight: 600;
+}
+
+.create-profile {
+  text-align: left;
+}
+
+.create-profile-title {
+  text-align: center;
+  margin: 2rem;
+}
+h1 {
+  font-family: "Lobster", cursive;
+  color: white;
+}
+
+.header a:link,
+a:active,
+a:visited,
+a:hover {
+  text-decoration: none;
+}
+
+.navigation {
+  background-color: #3d6792;
+  color: white;
+}
+
+.about-title {
+  font-size: 25px;
+  font-weight: 800;
+  color: #3d6792;
+  text-decoration: underline;
+}
+
+.about-text {
+  width: 50vw;
+  margin: auto;
+  padding-bottom: 5em;
+  font-size: 20px;
+}
+.about-names a {
+  text-decoration: none;
+  color: #3d6792;
+}
+.projectsCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4rem;
 }
