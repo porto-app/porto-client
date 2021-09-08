@@ -17,10 +17,12 @@ function App() {
     const [profiles, setProfiles] = useState([])
     const [currentProfileId, setCurrentProfileId] = useState("");
     const [activeProfile, setActiveProfile] = useState("");
+    const [search, setSearch] = useState('')
+    const [filteredProfiles, setFilteredProfiles] = useState('')
 
     return (
         <div className="App">
-            <DataContext.Provider value={{ profiles, setProfiles, currentProfileId, setCurrentProfileId, activeProfile, setActiveProfile }}>
+            <DataContext.Provider value={{ profiles, setProfiles, currentProfileId, setCurrentProfileId, activeProfile, setActiveProfile, search, setSearch, filteredProfiles, setFilteredProfiles }}>
                 <Router>
                 <Header />
                 <Navi />
