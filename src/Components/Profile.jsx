@@ -59,6 +59,8 @@ function Profile(props) {
         let firstNameEdited = document.querySelector(".firstNameEdit").value
         let middleNameEdited = document.querySelector(".middleNameEdit").value
         let lastNameEdited = document.querySelector(".lastNameEdit").value
+        let emailEdited = document.querySelector(".emailEdit").value
+        let resumeEdited = document.querySelector(".resumeEdit").value
 
         try {
             const url =
@@ -69,7 +71,9 @@ function Profile(props) {
             axios.put(url, {
                 firstName: firstNameEdited,
                 middleName: middleNameEdited,
-                lastName: lastNameEdited
+                lastName: lastNameEdited,
+                email: emailEdited,
+                urlResume: resumeEdited
             });
             console.log("Edit successful!");
         } catch (error) {
@@ -97,6 +101,14 @@ function Profile(props) {
                     <Form.Group className="mb-3" controlId="formGroupLastName">
                         <Form.Label>Last Name</Form.Label>
                         <Form.Control className="lastNameEdit"/>
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formGroupEmail">
+                        <Form.Label>Email</Form.Label>
+                        <Form.Control className="emailEdit"/>
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formGroupResume">
+                        <Form.Label>Resume</Form.Label>
+                        <Form.Control className="resumeEdit"/>
                     </Form.Group>
                 </Modal.Body>
                 <Modal.Footer>
