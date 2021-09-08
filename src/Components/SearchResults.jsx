@@ -10,6 +10,7 @@ function SearchResults() {
     const { profiles, setProfiles, search, setSearch, filteredProfiles, setFilteredProfiles } = useContext(DataContext);
     const placeholderPic = "https://a.ltrbxd.com/avatar/twitter/4/3/8/3/8/2/shard/http___pbs.twimg.com_profile_images_959679433505497089__0ShmWMC.jpg?k=cd3effc45f"
 
+    let listOfProfiles = [];
     const fakeResponseData = [
         {
             name: "Andy Zhong",
@@ -50,7 +51,7 @@ function SearchResults() {
     ]
 
     useEffect(() => {
-        console.log("WHAT WAS SEARCH CRITERIA??? : ", search);
+        console.log("Search criteria entered: ", search);
         getAllProfiles()
     }, [])
 
@@ -71,7 +72,8 @@ function SearchResults() {
             const responseData = response.data;
 
             const filteredResults =responseData.filter((profile) => {
-                return profile.location === "Boston"
+                console.log("THING WE ARE SEARCHING", search);
+                return profile.location === search
             })
 
             console.log("Filtered results are: ", filteredResults);
@@ -86,23 +88,43 @@ function SearchResults() {
     }
 
     // fakeResponseData will be replaced by the real response data once available.
-    let listOfProfiles = profiles.map((profile, index) => {
-        return (
-            <PreviewCard
-                dataObject={profile}
-                id={profile._id}
-                firstName={profile.firstName}
-                middleName={profile.middleName}
-                lastName={profile.lastName}
-                title={profile.title}
-                location={profile.location}
-                url={profile.urlPic}
-                key={profile._id}
-            />
-        )
-    })
+    if (filteredProfiles.length > 1) {
+        listOfProfiles = filteredProfiles.map((profile, index) => {
+            return (
+                <PreviewCard
+                    dataObject={profile}
+                    id={profile._id}
+                    firstName={profile.firstName}
+                    middleName={profile.middleName}
+                    lastName={profile.lastName}
+                    title={profile.title}
+                    location={profile.location}
+                    url={profile.urlPic}
+                    key={profile._id}
+                />
+            )
+        })
+    } else {
+        listOfProfiles = profiles.map((profile, index) => {
+            return (
+                <PreviewCard
+                    dataObject={profile}
+                    id={profile._id}
+                    firstName={profile.firstName}
+                    middleName={profile.middleName}
+                    lastName={profile.lastName}
+                    title={profile.title}
+                    location={profile.location}
+                    url={profile.urlPic}
+                    key={profile._id}
+                />
+            )
+        })
+    }
+
 
     return (
+        // TODO: CAN WE ADD A NULL CHECK HERE?
         <Container>
             <Row>
                 <Col>
