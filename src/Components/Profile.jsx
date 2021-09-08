@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Button, Modal, Form, Card, Placeholder } from 'react-bootstrap';
-import { DataContext } from './DataContext'
+import { DataContext } from './DataContext';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+
 
 
 function Profile(props) {
@@ -13,8 +14,6 @@ function Profile(props) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
-
 
     console.log("currentProfile id is", currentProfileId);
 
@@ -78,6 +77,7 @@ function Profile(props) {
         }
     }
 
+ 
     return (
         <div>
 
@@ -119,8 +119,17 @@ function Profile(props) {
                 </h2>
                 </div>
             <div>
-                <button className="contactButton">Contact</button>
+            
+
+                 {/* <a class="mailto" href={id.email}>mail</a> */}
+                 <button className="contactButton"><a class="mailto" href="mailto:contact@test.com">Contact</a></button>
+            
+
+            
                 <button className="resumeButton">Resume </button>
+
+
+
             </div>
 
             <Button className="editButton" onClick={handleShow}>
