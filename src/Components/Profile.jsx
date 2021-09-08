@@ -131,11 +131,11 @@ function Profile(props) {
             </Link>
             <div className="projectsCard">
                 <Card style={{ width: '50rem' }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
+                <Card.Img variant="top" src={activeProfile.Project1Img} />
                 <Card.Body>
-                <Card.Title>Project 1</Card.Title>
+                <Card.Title>{activeProfile.Project1Name}</Card.Title>
                 <Card.Text>
-        Here is an example of a project that I built using technologies: Javascript, HTML, CSS, React. 
+                    {activeProfile.Project1Description}
             </Card.Text>
             <Button variant="primary">Click here</Button>
             </Card.Body>
@@ -146,9 +146,9 @@ function Profile(props) {
                 <Card style={{ width: '50rem' }}>
                 <Card.Img variant="top" src="holder.js/100px180" />
                 <Card.Body>
-                <Card.Title>Project 2</Card.Title>
+                <Card.Title>{activeProfile.Project2Name}</Card.Title>
                 <Card.Text>
-        Here is an example of a project that I built using technologies: Javascript, HTML, CSS, React. 
+                {activeProfile.Project2Description} 
             </Card.Text>
             <Button variant="primary">Click here</Button>
             </Card.Body>
@@ -158,9 +158,9 @@ function Profile(props) {
                 <Card style={{ width: '50rem' }}>
                 <Card.Img variant="top" src="holder.js/100px180" />
                 <Card.Body>
-                <Card.Title>Project 3</Card.Title>
+                <Card.Title>{activeProfile.Project3Name}</Card.Title>
                 <Card.Text>
-        Here is an example of a project that I built using technologies: Javascript, HTML, CSS, React. 
+                {activeProfile.Project3Description} 
             </Card.Text>
             <Button variant="primary">Click here</Button>
             </Card.Body>
@@ -170,9 +170,9 @@ function Profile(props) {
                 <Card style={{ width: '50rem' }}>
                 <Card.Img variant="top" src="holder.js/100px180" />
                 <Card.Body>
-                <Card.Title>Project 4</Card.Title>
+                <Card.Title>{activeProfile.Project4Name}</Card.Title>
                 <Card.Text>
-        Here is an example of a project that I built using technologies: Javascript, HTML, CSS, React. 
+                {activeProfile.Project4Description}
             </Card.Text>
             <Button variant="primary">Click here</Button>
             </Card.Body>

@@ -42,7 +42,8 @@ a:hover {
 
 .me-auto {
   margin: 0 auto;
-  color: white;
+  color: white !important;
+  font-weight: 600;
 }
 .searchMain {
   margin: 10em 0px;
@@ -70,19 +71,18 @@ a:hover {
   margin-top: 5em;
 }
 .create-button {
-  background-color:rgb(62,103,145);
+  background-color: rgb(62, 103, 145);
   font-size: 18px;
   border: none;
-  margin-top: 1rem;
-  margin: 0 auto;
+  margin: 1rem auto;
   font-weight: 600;
- }
+}
 
 /*BUTTONS FOR MY PROFILE SECTION*/
 
 .contactButton {
   font-family: "Montserrat", sans-serif;
-  background-color:rgb(62,103,145);
+  background-color: rgb(62, 103, 145);
   color: white;
   font-weight: 600;
   border: 0px solid;
@@ -91,11 +91,11 @@ a:hover {
   align-items: center;
   padding: 5px 10px;
   margin-left: 50px;
-  margin-top: 30px; 
+  margin-top: 30px;
 }
 .resumeButton {
   font-family: "Montserrat", sans-serif;
-  background-color:rgb(62,103,145);
+  background-color: rgb(62, 103, 145);
   color: white;
   font-weight: 600;
   border: 0px solid;
@@ -104,11 +104,11 @@ a:hover {
   align-items: center;
   padding: 5px 10px;
   margin-left: 50px;
-  margin-top: 30px; 
+  margin-top: 30px;
 }
- .editButton {
+.editButton {
   font-family: "Montserrat", sans-serif;
-  background-color:rgb(62,103,145);
+  background-color: rgb(62, 103, 145);
   color: white;
   font-weight: 600;
   border-radius: 4px;
@@ -117,12 +117,12 @@ a:hover {
   align-items: center;
   padding: 5px 10px;
   margin-left: 50px;
-  margin-top: 30px; 
+  margin-top: 30px;
   margin-bottom: 40px;
- }
+}
 .deleteButton {
   font-family: "Montserrat", sans-serif;
-  background-color:rgb(62,103,145);
+  background-color: rgb(62, 103, 145);
   color: white;
   font-weight: 600;
   border: 0px solid;
@@ -131,7 +131,7 @@ a:hover {
   align-items: center;
   padding: 5px 10px;
   margin-left: 50px;
-  margin-top: 30px; 
+  margin-top: 30px;
   margin-bottom: 40px;
 }
 /*end of buttons for my profile*/
@@ -162,7 +162,7 @@ h2 {
   max-height: 250px;
   margin: 3rem;
   border-radius: 40px;
-} 
+}
 .preview-card {
   display: inline-block;
   padding: 2rem;
@@ -173,7 +173,7 @@ h2 {
   color: white;
   border: none;
   font-weight: 600;
-} 
+}
 
 .create-profile {
   text-align: left;
@@ -218,7 +218,7 @@ a:hover {
   color: #3d6792;
 }
 .projectsCard {
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   margin: 4rem;
