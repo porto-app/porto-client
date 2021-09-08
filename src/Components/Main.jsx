@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap'
+import { DataContext } from './DataContext';
 
 function Main(props) {
 
-    const [search, setSearch] = useState('')
+    const { search, setSearch } = useContext(DataContext);
 
     return (
         <div className="searchMain">
