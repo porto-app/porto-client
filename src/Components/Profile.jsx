@@ -111,27 +111,15 @@ function Profile(props) {
 
             <div className="myProfile">
                 <img className="pic" src={activeProfile.urlPic} alt="" />
-
                 <h2>
                     <div className="name">Name: {activeProfile.firstName} {activeProfile.middleName} {activeProfile.lastName}</div>
                     <div className="title">Title: {activeProfile.title}</div>
                     <div className="location">Location: {activeProfile.location}</div>
-                    <button className="contactButton"><a class="mailto" href="mailto:contact@test.com">Contact</a></button>
-                    <button className="resumeButton">Resume </button>
-                </h2>
-                </div>
-            <div>
-       
-                    <div className="name"><strong>Name:</strong> {activeProfile.firstName} {activeProfile.middleName} {activeProfile.lastName}</div>
-                    <div className="title"><strong>Title:</strong> {activeProfile.title}</div>
-                    <div className="location"><strong>Location:</strong> {activeProfile.location}</div>
-                    <button className="contactButton">Contact</button>
-                    <button className="resumeButton">Resume </button>
+                    <button className="contactButton"><a class="mailto" href={'mailto:' + activeProfile.email}>Contact</a> </button>                 
+                    <button className="resumeButton" href="Resume">Resume {activeProfile.resume}</button>
                 </h2>
             </div>
-            
 
-            
             <div className="projectsCard">
                 <Card style={{ width: '50rem' }}>
                 <Card.Img variant="top" src={activeProfile.Project1Img} />
