@@ -11,7 +11,7 @@ function Navi() {
                     <Nav className="me-auto">
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/about">About</Nav.Link>
-                        <Nav.Link href="/profile">My Profile</Nav.Link>
+                        <Nav.Link href="/searchResults">Explore</Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>
