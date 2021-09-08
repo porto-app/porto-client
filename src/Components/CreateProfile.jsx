@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
-import { Button, Form, Container } from 'react-bootstrap'
+import { Button, Form, Container, Col, Row } from 'react-bootstrap'
 import axios from 'axios';
 
 
@@ -151,8 +151,10 @@ function CreateProfile() {
     return (
         <div className="create-profile">
             <h3 className="create-profile-title">Create a New Profile!</h3>
-            <Container>
+            <Container className="create-box">
                 <Form>
+                    <Row>
+                    <Col>
                     <Form.Group className="mb-3" controlId="formGroupEmail">
                         <Form.Label>Email</Form.Label>
                         <Form.Control type="email" placeholder="Enter email" onChange={storeEmail}/>
@@ -181,6 +183,8 @@ function CreateProfile() {
                         <Form.Label>Profile Pic URL</Form.Label>
                         <Form.Control onChange={storeUrlPic}/>
                     </Form.Group>
+                    </Col>
+                    <Col>
                     <Form.Group className="mb-3" controlId="formGroupP1Name">
                         <Form.Label>Project 1 - Name</Form.Label>
                         <Form.Control onChange={storeProject1Name} />
@@ -245,6 +249,8 @@ function CreateProfile() {
                         <Form.Label>Project 4 - Image URL</Form.Label>
                         <Form.Control onChange={storeProject4Img} />
                     </Form.Group>
+                    </Col>
+                    </Row>
                     <Link to='/searchResults'>
                         <Button variant="primary" type="submit" onClick={submitNewProfile}>Submit</Button>
                     </Link>

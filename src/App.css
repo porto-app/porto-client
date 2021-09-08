@@ -200,6 +200,12 @@ h2 {
   text-align: center;
   margin: 2rem;
 }
+
+/*Container .create-box {
+  display: grid;
+  grid-template-columns: 200px, 200px;
+}*/
+
 h1 {
   font-family: "Lobster", cursive;
   color: white;
