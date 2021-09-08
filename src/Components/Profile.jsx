@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Button, Modal, Form, Card, Placeholder } from 'react-bootstrap';
-import { DataContext } from './DataContext'
+import { DataContext } from './DataContext';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+
 
 
 function Profile(props) {
@@ -13,8 +14,6 @@ function Profile(props) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
-
 
     console.log("currentProfile id is", currentProfileId);
 
@@ -78,6 +77,7 @@ function Profile(props) {
         }
     }
 
+ 
     return (
         <div className="profile-page">
 
@@ -113,6 +113,15 @@ function Profile(props) {
                 <img className="pic" src={activeProfile.urlPic} alt="" />
 
                 <h2>
+                    <div className="name">Name: {activeProfile.firstName} {activeProfile.middleName} {activeProfile.lastName}</div>
+                    <div className="title">Title: {activeProfile.title}</div>
+                    <div className="location">Location: {activeProfile.location}</div>
+                    <button className="contactButton"><a class="mailto" href="mailto:contact@test.com">Contact</a></button>
+                    <button className="resumeButton">Resume </button>
+                </h2>
+                </div>
+            <div>
+       
                     <div className="name"><strong>Name:</strong> {activeProfile.firstName} {activeProfile.middleName} {activeProfile.lastName}</div>
                     <div className="title"><strong>Title:</strong> {activeProfile.title}</div>
                     <div className="location"><strong>Location:</strong> {activeProfile.location}</div>
