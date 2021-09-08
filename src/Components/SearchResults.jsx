@@ -88,7 +88,7 @@ function SearchResults() {
     }
 
     // fakeResponseData will be replaced by the real response data once available.
-    if (filteredProfiles.length > 1) {
+    if (filteredProfiles.length >= 1) {
         listOfProfiles = filteredProfiles.map((profile, index) => {
             return (
                 <PreviewCard
