@@ -59,7 +59,7 @@ function SearchResults() {
         try {
             const url =
                 process.env.NODE_ENV === 'production'
-                    ? `https://deployed-heroku-api.com/profiles`
+                    ? `http://porto-app-server.herokuapp.com/profiles`
                     : `http://localhost:5000/profiles`
 
             const response = await axios(url)

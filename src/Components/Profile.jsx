@@ -15,7 +15,7 @@ function Profile(props) {
     const handleShow = () => setShow(true);
 
 
- 
+
     console.log("currentProfile id is", currentProfileId);
 
     useEffect(() => {
@@ -28,7 +28,7 @@ function Profile(props) {
         try {
             const url =
                 process.env.NODE_ENV === 'production'
-                    ? `https://deployed-heroku-api.com/profiles/${currentProfileId}`
+                    ? `http://porto-app-server.herokuapp.com/profiles/${currentProfileId}`
                     : `http://localhost:5000/profiles/${currentProfileId}`
 
             const response = await axios(url)
@@ -45,7 +45,7 @@ function Profile(props) {
         try {
             const url =
                 process.env.NODE_ENV === 'production'
-                    ? `https://deployed-heroku-api.com/profiles/${currentProfileId}`
+                    ? `http://porto-app-server.herokuapp.com/profiles/${currentProfileId}`
                     : `http://localhost:5000/profiles/${currentProfileId}`
 
             axios.delete(url);
@@ -64,7 +64,7 @@ function Profile(props) {
         try {
             const url =
                 process.env.NODE_ENV === 'production'
-                    ? `https://deployed-heroku-api.com/profiles/${currentProfileId}`
+                    ? `http://porto-app-server.herokuapp.com/profiles/${currentProfileId}`
                     : `http://localhost:5000/profiles/${currentProfileId}`
 
             axios.put(url, {
@@ -80,7 +80,7 @@ function Profile(props) {
 
     return (
         <div>
-                
+
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Edit Profile</Modal.Title>
@@ -148,7 +148,7 @@ function Profile(props) {
                 <Card.Body>
                 <Card.Title>{activeProfile.Project2Name}</Card.Title>
                 <Card.Text>
-                {activeProfile.Project2Description} 
+                {activeProfile.Project2Description}
             </Card.Text>
             <Button variant="primary">Click here</Button>
             </Card.Body>
@@ -160,7 +160,7 @@ function Profile(props) {
                 <Card.Body>
                 <Card.Title>{activeProfile.Project3Name}</Card.Title>
                 <Card.Text>
-                {activeProfile.Project3Description} 
+                {activeProfile.Project3Description}
             </Card.Text>
             <Button variant="primary">Click here</Button>
             </Card.Body>
@@ -179,7 +179,7 @@ function Profile(props) {
         </Card>
         </div>
        </div>
-      
+
   );
 }
 
