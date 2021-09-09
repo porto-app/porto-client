@@ -1,3 +1,5 @@
+/* OVERALL APP STYLING */
+
 .App {
   text-align: center;
   font-family: "Montserrat", sans-serif;
@@ -6,6 +8,17 @@
 body {
   background-color: #f0f6fc;
 }
+
+/* LINK STYLING */
+
+a,
+a:hover,
+a:focus {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* FOOTER STYLING */
 
 .footer {
   background-color: #3d6792;
@@ -29,6 +42,8 @@ a:hover {
   padding-top: 15px;
 }
 
+/* HEADER & NAVIGATION STYLING */
+
 .header {
   background: url("./lukas-blazek-EWDvHNNfUmQ-unsplash.jpg");
   background-repeat: no-repeat;
@@ -48,6 +63,33 @@ a:hover {
   font-weight: 600;
   font-size: 18px;
 }
+
+.header a:link,
+a:active,
+a:visited,
+a:hover {
+  text-decoration: none;
+}
+
+.navigation {
+  background-color: #3d6792;
+  background-image: linear-gradient(180deg, #658eb8, #3d6792);
+  box-shadow: 0px 8px 15px rgba(32, 32, 32, 0.1);
+  color: white;
+}
+
+.navbar-link {
+  color: white !important;
+}
+
+.navbar-link:hover {
+  webkit-animation: slide-fwd-center 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+  animation: slide-fwd-center 0.45s cubic-bez-ier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/* SEARCH BAR STYLING */
+
 .searchMain {
   margin: 10em 0px;
   color: #3d6792;
@@ -71,10 +113,49 @@ a:hover {
   font-weight: 600;
 }
 
-.aboutUs {
-  margin-top: 5em;
-  height: 100vh;
+/* ABOUT US PAGE STYLING */
+
+.aboutPage {
+  height: 80vh;
 }
+
+.aboutUs {
+  margin: auto;
+}
+
+.aboutUsCard {
+  margin: auto;
+  margin-top: 2em;
+  margin-bottom: 5em;
+  background-color: #f0f6fc;
+  border-radius: 50px;
+  border: 0px solid #3d6792;
+  padding: 20px;
+  font-size: 22px;
+}
+
+.aboutUsTitle {
+  color: #3d6792;
+  font-weight: 600;
+}
+
+.creators {
+  margin: auto;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.creatorName {
+  padding-bottom: 10px;
+}
+
+.githubButton {
+  background-color: #3d6792;
+  background-image: linear-gradient(180deg, #658eb8, #3d6792);
+}
+
+/* CREATE PROFILE STYLING */
+
 .create-button {
   background-color: rgb(62, 103, 145);
   background-image: linear-gradient(180deg, #658eb8, #3d6792);
@@ -84,7 +165,7 @@ a:hover {
   font-weight: 600;
 }
 
-/*BUTTONS FOR MY PROFILE SECTION*/
+/* USER PROFILE STYLING */
 
 .profile-page {
   min-height: 130vh;
@@ -149,13 +230,9 @@ a:hover {
   margin-bottom: 40px;
   min-width: 150px;
 }
-/*end of buttons for my profile*/
 
-h2 {
-  font-family: "Montserrat", sans-serif;
-  font-size: 22px;
-  color: cornflowerblue;
-  padding-left: 20px;
+.projectButton {
+  margin-left: 25px;
 }
 
 .myProfile {
@@ -169,6 +246,25 @@ h2 {
   color: #3d6792;
   text-align: left;
 }
+
+h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 22px;
+  color: cornflowerblue;
+  padding-left: 20px;
+}
+
+.profileAbout {
+  font-family: "Lobster", cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  color: #3d6792;
+  text-decoration: underline 2px;
+  margin-bottom: 15px;
+}
+
 .pic {
   display: flex;
   justify-content: center;
@@ -212,52 +308,26 @@ h1 {
   color: white;
 }
 
-.header a:link,
-a:active,
-a:visited,
-a:hover {
-  text-decoration: none;
-}
-
-.navigation {
-  background-color: #3d6792;
-  background-image: linear-gradient(180deg, #658eb8, #3d6792);
-  box-shadow: 0px 8px 15px rgba(32, 32, 32, 0.1);
-  color: white;
-}
-
-.navbar-link {
-  color: white !important;
-}
-
-.navbar-link:hover {
-  webkit-animation: slide-fwd-center 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-    both;
-  animation: slide-fwd-center 0.45s cubic-bez-ier(0.25, 0.46, 0.45, 0.94) both;
-}
-
-.about-title {
-  font-size: 25px;
-  font-weight: 800;
-  color: #3d6792;
-  text-decoration: underline;
-}
-
-.about-text {
-  width: 50vw;
-  margin: auto;
-  padding-bottom: 5em;
-  font-size: 20px;
-}
-.about-names a {
-  text-decoration: none;
-  color: #3d6792;
-}
 .projectsCard {
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
-  margin: 4rem;
+  margin: 2rem;
+}
+
+.currentProjectTitle {
+  font-family: "Lobster", cursive;
+  font-size: 32px;
+  color: #3d6792;
+  text-decoration: underline 2px;
+  margin-top: 2rem;
+}
+
+hr {
+  width: 77vw;
+  margin: 5px auto;
+  color: rgb(62, 103, 145);
+  border: 1px solid;
 }
 
 /* ----------------------------------------------

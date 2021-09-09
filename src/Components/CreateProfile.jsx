@@ -4,7 +4,7 @@ import { Button, Form, Container, Col, Row } from 'react-bootstrap'
 import axios from 'axios';
 
 
-function CreateProfile() {
+function CreateProfile(props) {
 
     const [email, setEmail] = useState("")
     const [firstName, setFirstName] = useState("")
@@ -13,6 +13,7 @@ function CreateProfile() {
     const [title, setTitle] = useState("")
     const [location, setLocation] = useState("")
     const [urlPic, setUrlPic] = useState("")
+    const [urlResume, setUrlResume] = useState("")
     const [Project1Name, setProject1Name] = useState("")
     const [Project1Description, setProject1Description] = useState("")
     const [Project1URL, setProject1URL] = useState("")
@@ -32,12 +33,15 @@ function CreateProfile() {
 
 
 
-    const submitNewProfile = async (e) => {
-        e.preventDefault();
+    const submitNewProfile = async () => {
         console.log("Attempting to submit new profile...")
-        console.log("email", email);
 
-        axios.post('http://localhost:5000/profiles', {
+        const url =
+            process.env.NODE_ENV === 'production'
+                ? `http://porto-app-server.herokuapp.com/profiles`
+                : `http://localhost:5000/profiles`
+
+        axios.post(url, {
             email,
             firstName,
             middleName,
@@ -45,6 +49,7 @@ function CreateProfile() {
             title,
             location,
             urlPic,
+            urlResume,
             Project1Name,
             Project1Description,
             Project1URL,
@@ -94,6 +99,10 @@ function CreateProfile() {
 
     const storeUrlPic = (e) => {
         setUrlPic(e.target.value)
+    }
+
+    const storeUrlResume = (e) => {
+        setUrlResume(e.target.value)
     }
 
     const storeProject1Name = (e) => {
@@ -148,6 +157,11 @@ function CreateProfile() {
         setProject4Img(e.target.value)
     }
 
+    const routeToSearch = () => {
+        props.history.push('/searchresults')
+        submitNewProfile();
+    }
+
     return (
         <div className="create-profile">
             <h3 className="create-profile-title">Create a New Profile!</h3>
@@ -156,103 +170,108 @@ function CreateProfile() {
                     <Row>
                     <Col>
                     <Form.Group className="mb-3" controlId="formGroupEmail">
-                        <Form.Label>Email</Form.Label>
+                        <Form.Label>Email*</Form.Label>
                         <Form.Control type="email" placeholder="Enter email" onChange={storeEmail}/>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupFirstName">
-                        <Form.Label>First Name</Form.Label>
-                        <Form.Control onChange={storeFirstName}/>
+                        <Form.Label>First Name*</Form.Label>
+                        <Form.Control placeholder="First Name" onChange={storeFirstName}/>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupMiddleName">
                         <Form.Label>Middle Name</Form.Label>
-                        <Form.Control onChange={storeMiddleName}/>
+                        <Form.Control placeholder="Middle Name" onChange={storeMiddleName}/>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupLastName">
-                        <Form.Label>Last Name</Form.Label>
-                        <Form.Control onChange={storeLastName}/>
+                        <Form.Label>Last Name*</Form.Label>
+                        <Form.Control placeholder="Last Name" onChange={storeLastName}/>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupTitle">
-                        <Form.Label>Title</Form.Label>
-                        <Form.Control onChange={storeTitle}/>
+                        <Form.Label>Title*</Form.Label>
+                        <Form.Control placeholder="Title" onChange={storeTitle}/>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupLocation">
-                        <Form.Label>Location</Form.Label>
-                        <Form.Control onChange={storeLocation}/>
+                        <Form.Label>Location*</Form.Label>
+                        <Form.Control placeholder="Location" onChange={storeLocation}/>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupProfilePic">
-                        <Form.Label>Profile Pic URL</Form.Label>
-                        <Form.Control onChange={storeUrlPic}/>
+                        <Form.Label>Profile Pic URL*</Form.Label>
+                        <Form.Control placeholder="Profile Pic URL" onChange={storeUrlPic}/>
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formGroupUrlResume">
+                        <Form.Label>Resume URL*</Form.Label>
+                        <Form.Control placeholder="Resume URL" onChange={storeUrlResume}/>
                     </Form.Group>
                     </Col>
                     <Col>
                     <Form.Group className="mb-3" controlId="formGroupP1Name">
-                        <Form.Label>Project 1 - Name</Form.Label>
-                        <Form.Control onChange={storeProject1Name} />
+                        <Form.Label>Project 1 - Name*</Form.Label>
+                        <Form.Control placeholder="Project 1 Name" onChange={storeProject1Name} />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupP1Desc">
-                        <Form.Label>Project 1 - Description</Form.Label>
-                        <Form.Control onChange={storeProject1Description} />
+                        <Form.Label>Project 1 - Description*</Form.Label>
+                        <Form.Control placeholder="Project 1 Description" onChange={storeProject1Description} />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupP1Url">
-                        <Form.Label>Project 1 - URL</Form.Label>
-                        <Form.Control onChange={storeProject1URL} />
+                        <Form.Label>Project 1 - URL*</Form.Label>
+                        <Form.Control placeholder="Project 1 URL" onChange={storeProject1URL} />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupP1Image">
                         <Form.Label>Project 1 - Image URL</Form.Label>
-                        <Form.Control onChange={storeProject1Img} />
+                        <Form.Control placeholder="Project 1 Image URL" onChange={storeProject1Img} />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupP2Name">
                         <Form.Label>Project 2 - Name</Form.Label>
-                        <Form.Control onChange={storeProject2Name} />
+                        <Form.Control placeholder="Project 2 Name" onChange={storeProject2Name} />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupP2Desc">
                         <Form.Label>Project 2 - Description</Form.Label>
-                        <Form.Control onChange={storeProject2Description} />
+                        <Form.Control placeholder="Project 2 Description" onChange={storeProject2Description} />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupP2Url">
                         <Form.Label>Project 2 - URL</Form.Label>
-                        <Form.Control onChange={storeProject2URL} />
+                        <Form.Control placeholder="Project 2 URL" onChange={storeProject2URL} />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupP2Image">
                         <Form.Label>Project 2 - Image URL</Form.Label>
-                        <Form.Control onChange={storeProject2Img} />
+                        <Form.Control placeholder="Project 2 Image URL" onChange={storeProject2Img} />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupP3Name">
                         <Form.Label>Project 3 - Name</Form.Label>
-                        <Form.Control onChange={storeProject3Name} />
+                        <Form.Control placeholder="Project 3 Name" onChange={storeProject3Name} />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupP3Desc">
                         <Form.Label>Project 3 - Description</Form.Label>
-                        <Form.Control onChange={storeProject3Description} />
+                        <Form.Control placeholder="Project 3 Description" onChange={storeProject3Description} />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupP3Url">
                         <Form.Label>Project 3 - URL</Form.Label>
-                        <Form.Control onChange={storeProject3URL} />
+                        <Form.Control placeholder="Project 3 URL" onChange={storeProject3URL} />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupP3Image">
                         <Form.Label>Project 3 - Image URL</Form.Label>
-                        <Form.Control onChange={storeProject3Img} />
+                        <Form.Control placeholder="Project 3 Image URL" onChange={storeProject3Img} />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupP4Name">
                         <Form.Label>Project 4 - Name</Form.Label>
-                        <Form.Control onChange={storeProject4Name} />
+                        <Form.Control placeholder="Project 4 Name" onChange={storeProject4Name} />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupP4Desc">
                         <Form.Label>Project 4 - Description</Form.Label>
-                        <Form.Control onChange={storeProject4Description} />
+                        <Form.Control placeholder="Project 4 Description" onChange={storeProject4Description} />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupP4Url">
                         <Form.Label>Project 4 - URL</Form.Label>
-                        <Form.Control onChange={storeProject4URL} />
+                        <Form.Control placeholder="Project 4 URL" onChange={storeProject4URL} />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupP4Image">
                         <Form.Label>Project 4 - Image URL</Form.Label>
-                        <Form.Control onChange={storeProject4Img} />
+                        <Form.Control placeholder="Project 4 Image URL" onChange={storeProject4Img} />
                     </Form.Group>
                     </Col>
                     </Row>
+                    <p>* denotes required field</p>
                     <Link to='/searchResults'>
-                        <Button variant="primary" type="submit" onClick={submitNewProfile}>Submit</Button>
+                        <Button variant="primary" type="submit" onClick={routeToSearch}>Submit</Button>
                     </Link>
                 </Form>
             </Container>

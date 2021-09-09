@@ -5,6 +5,7 @@
 -   Set up initial client side and server side repos
 -   Build initial layout
 
+
 ## Day 2 - Saturday
 -   Build initial
 
@@ -13,3 +14,5 @@
 -   Begin integrating server-side code with client-side requests
 
 ## Day 4 - Monday
+
+
