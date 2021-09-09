@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Button, Modal, Form, Card } from 'react-bootstrap';
+import { Button, Modal, Form, Card, Row, Col } from 'react-bootstrap';
 import { DataContext } from './DataContext';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -389,89 +389,114 @@ function Profile(props) {
             </Modal>
 
             <div className="myProfile">
-                <img className="pic" src={activeProfile.urlPic} alt="" />
-                <h2>
-                    <div className="profileAbout"><h3>Profile Info</h3></div>
-                    <div className="name">Name: {activeProfile.firstName} {activeProfile.middleName} {activeProfile.lastName}</div>
-                    <div className="title">Title: {activeProfile.title}</div>
-                    <div className="location">Location: {activeProfile.location}</div>
-                    <button className="contactButton">
-                        <a className="mailto" href={'mailto:' + activeProfile.email}>Contact</a>
-                    </button>
-                    <button className="resumeButton">
-                        <a className="Resume" target="_blank" rel="noreferrer" href={activeProfile.urlResume}>Resume</a>
-                    </button>
-                </h2>
+                <Row>
+                    <Col md={6}>
+                        <img className="pic" src={activeProfile.urlPic} alt="" />
+                    </Col>
+                    <Col md={6}>
+                        <h2>
+                            <div className="profileAbout"><h3>Profile Info</h3></div>
+                            <div className="name">Name: {activeProfile.firstName} {activeProfile.middleName} {activeProfile.lastName}</div>
+                            <div className="title">Title: {activeProfile.title}</div>
+                            <div className="location">Location: {activeProfile.location}</div>
+                            <button className="contactButton">
+                                <a className="mailto" href={'mailto:' + activeProfile.email}>Contact</a>
+                            </button>
+                            <button className="resumeButton">
+                                <a className="Resume" target="_blank" rel="noreferrer" href={activeProfile.urlResume}>Resume</a>
+                            </button>
+                        </h2>
+                    </Col>
+                </Row>
+
+
             </div>
 
                     <hr />
                     <hr />
 
-                    <h2 className="currentProjectTitle">Current Projects</h2>
+            <h2 className="currentProjectTitle">Current Projects</h2>
 
-            <div className="projectsCard">
-                <Card style={{ width: '50rem' }}>
-                    <Card.Img variant="top" src={activeProfile.Project1Img} />
-                    <Card.Body>
-                        <Card.Title>{activeProfile.Project1Name}</Card.Title>
-                        <Card.Text>{activeProfile.Project1Description}</Card.Text>
-                        <a href={activeProfile.Project1URL}>
-                            <Button variant="primary" onClick={p1handleShow}>Edit Project</Button>
-                        </a>
-                        <a href={activeProfile.Project1URL} target="_blank" rel="noreferrer">
-                            <Button varient="primary" className="projectButton">View Project</Button>
-                        </a>
-                    </Card.Body>
-                </Card>
-            </div>
+            <Row>
+                <Col md={6}>
+                    <div className="projectsCard">
+                        <Card>
+                            <Card.Img variant="top" src={activeProfile.Project1Img} />
+                            <Card.Body>
+                                <Card.Title>{activeProfile.Project1Name}</Card.Title>
+                                <Card.Text>{activeProfile.Project1Description}</Card.Text>
+                                <a href={activeProfile.Project1URL}>
+                                    <Button variant="primary" onClick={p1handleShow}>Edit Project</Button>
+                                </a>
+                                <a href={activeProfile.Project1URL} target="_blank" rel="noreferrer">
+                                    <Button varient="primary" className="projectButton">View Project</Button>
+                                </a>
+                            </Card.Body>
+                        </Card>
+                    </div>
+                </Col>
+                <Col md={6}>
+                    <div className="projectsCard">
+                        <Card>
+                            <Card.Img variant="top" src={activeProfile.Project2Img} />
+                            <Card.Body>
+                                <Card.Title>{activeProfile.Project2Name}</Card.Title>
+                                <Card.Text>{activeProfile.Project2Description}</Card.Text>
+                                <a href={activeProfile.Project2URL}>
+                                    <Button variant="primary" onClick={p2handleShow}>Edit Project</Button>
+                                </a>
+                                <a href={activeProfile.Project1URL} target="_blank" rel="noreferrer">
+                                    <Button varient="primary" className="projectButton">View Project</Button>
+                                </a>
+                            </Card.Body>
+                        </Card>
+                    </div>
+                </Col>
+            </Row>
 
-            <div className="projectsCard">
-                <Card style={{ width: '50rem' }}>
-                    <Card.Img variant="top" src={activeProfile.Project2Img} />
-                    <Card.Body>
-                        <Card.Title>{activeProfile.Project2Name}</Card.Title>
-                        <Card.Text>{activeProfile.Project2Description}</Card.Text>
-                        <a href={activeProfile.Project2URL}>
-                            <Button variant="primary" onClick={p2handleShow}>Edit Project</Button>
-                        </a>
-                        <a href={activeProfile.Project1URL} target="_blank" rel="noreferrer">
-                            <Button varient="primary" className="projectButton">View Project</Button>
-                        </a>
-                    </Card.Body>
-                </Card>
-            </div>
+            <Row>
+                <Col md={6}>
+                    <div className="projectsCard">
+                        <Card>
+                            <Card.Img variant="top" src={activeProfile.Project3Img} />
+                            <Card.Body>
+                                <Card.Title>{activeProfile.Project3Name}</Card.Title>
+                                <Card.Text>{activeProfile.Project3Description}</Card.Text>
+                                <a href={activeProfile.Project3URL}>
+                                    <Button variant="primary" onClick={p3handleShow}>Edit Project</Button>
+                                </a>
+                                <a href={activeProfile.Project1URL} target="_blank" rel="noreferrer">
+                                    <Button varient="primary" className="projectButton">View Project</Button>
+                                </a>
+                            </Card.Body>
+                        </Card>
+                    </div>
+                </Col>
+                <Col md={6}>
+                    <div className="projectsCard">
+                        <Card>
+                            <Card.Img variant="top" src={activeProfile.Project4Img} />
+                            <Card.Body>
+                                <Card.Title>{activeProfile.Project4Name}</Card.Title>
+                                <Card.Text>{activeProfile.Project4Description}</Card.Text>
+                                <a href={activeProfile.Project4URL}>
+                                    <Button variant="primary" onClick={p4handleShow}>Edit Project</Button>
+                                </a>
+                                <a href={activeProfile.Project1URL} target="_blank" rel="noreferrer">
+                                    <Button varient="primary" className="projectButton">View Project</Button>
+                                </a>
+                            </Card.Body>
+                        </Card>
+                    </div>
+                </Col>
+            </Row>
 
-            <div className="projectsCard">
-                <Card style={{ width: '50rem' }}>
-                    <Card.Img variant="top" src={activeProfile.Project3Img} />
-                    <Card.Body>
-                        <Card.Title>{activeProfile.Project3Name}</Card.Title>
-                        <Card.Text>{activeProfile.Project3Description}</Card.Text>
-                        <a href={activeProfile.Project3URL}>
-                            <Button variant="primary" onClick={p3handleShow}>Edit Project</Button>
-                        </a>
-                        <a href={activeProfile.Project1URL} target="_blank" rel="noreferrer">
-                            <Button varient="primary" className="projectButton">View Project</Button>
-                        </a>
-                    </Card.Body>
-                </Card>
-            </div>
 
-            <div className="projectsCard">
-                <Card style={{ width: '50rem' }}>
-                    <Card.Img variant="top" src={activeProfile.Project4Img} />
-                    <Card.Body>
-                        <Card.Title>{activeProfile.Project4Name}</Card.Title>
-                        <Card.Text>{activeProfile.Project4Description}</Card.Text>
-                        <a href={activeProfile.Project4URL}>
-                            <Button variant="primary" onClick={p4handleShow}>Edit Project</Button>
-                        </a>
-                        <a href={activeProfile.Project1URL} target="_blank" rel="noreferrer">
-                            <Button varient="primary" className="projectButton">View Project</Button>
-                        </a>
-                    </Card.Body>
-                </Card>
-            </div>
+
+
+
+
+
             <div>
             <Button className="editButton" onClick={handleShow}>Edit Profile</Button>
             <Link to={`/searchresults`} key={props.id}>
