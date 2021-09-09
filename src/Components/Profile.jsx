@@ -8,7 +8,7 @@ import axios from 'axios';
 
 function Profile(props) {
 
-    const { currentProfileId, activeProfile, setActiveProfile } = useContext(DataContext);
+    const { activeProfile, setActiveProfile } = useContext(DataContext);
 
     // Modal Commands
     const [show, setShow] = useState(false);
@@ -47,14 +47,17 @@ function Profile(props) {
         getOneProfile()
     }, [show, p1show, p2show, p3show, p4show])
 
+    let mongoId = props.history.location.pathname.substring(9)
+
     const getOneProfile = async () => {
         console.log("Attempting to retrieve one profile...")
+        console.log(mongoId);
 
         try {
             const url =
                 process.env.NODE_ENV === 'production'
-                    ? `http://porto-app-server.herokuapp.com/profiles/${currentProfileId}`
-                    : `http://localhost:5000/profiles/${currentProfileId}`
+                    ? `http://porto-app-server.herokuapp.com/profiles/${mongoId}`
+                    : `http://localhost:5000/profiles/${mongoId}`
 
             const response = await axios(url)
             console.log("Response data: ", response);
@@ -70,8 +73,8 @@ function Profile(props) {
         try {
             const url =
                 process.env.NODE_ENV === 'production'
-                    ? `http://porto-app-server.herokuapp.com/profiles/${currentProfileId}`
-                    : `http://localhost:5000/profiles/${currentProfileId}`
+                    ? `http://porto-app-server.herokuapp.com/profiles/${mongoId}`
+                    : `http://localhost:5000/profiles/${mongoId}`
 
             axios.delete(url);
             console.log("Delete successful!");
@@ -91,8 +94,8 @@ function Profile(props) {
         try {
             const url =
                 process.env.NODE_ENV === 'production'
-                    ? `http://porto-app-server.herokuapp.com/profiles/${currentProfileId}`
-                    : `http://localhost:5000/profiles/${currentProfileId}`
+                    ? `http://porto-app-server.herokuapp.com/profiles/${mongoId}`
+                    : `http://localhost:5000/profiles/${mongoId}`
 
             axios.put(url, {
                 firstName: firstNameEdited,
@@ -117,8 +120,8 @@ function Profile(props) {
         try {
             const url =
                 process.env.NODE_ENV === 'production'
-                    ? `http://porto-app-server.herokuapp.com/profiles/${currentProfileId}`
-                    : `http://localhost:5000/profiles/${currentProfileId}`
+                    ? `http://porto-app-server.herokuapp.com/profiles/${mongoId}`
+                    : `http://localhost:5000/profiles/${mongoId}`
 
             axios.put(url, {
                 Project1Description: project1DescriptionEdited,
@@ -142,8 +145,8 @@ function Profile(props) {
         try {
             const url =
                 process.env.NODE_ENV === 'production'
-                    ? `http://porto-app-server.herokuapp.com/profiles/${currentProfileId}`
-                    : `http://localhost:5000/profiles/${currentProfileId}`
+                    ? `http://porto-app-server.herokuapp.com/profiles/${mongoId}`
+                    : `http://localhost:5000/profiles/${mongoId}`
 
             axios.put(url, {
                 Project2Description: project2DescriptionEdited,
@@ -167,8 +170,8 @@ function Profile(props) {
         try {
             const url =
                 process.env.NODE_ENV === 'production'
-                    ? `http://porto-app-server.herokuapp.com/profiles/${currentProfileId}`
-                    : `http://localhost:5000/profiles/${currentProfileId}`
+                    ? `http://porto-app-server.herokuapp.com/profiles/${mongoId}`
+                    : `http://localhost:5000/profiles/${mongoId}`
 
             axios.put(url, {
                 Project3Description: project3DescriptionEdited,
@@ -192,8 +195,8 @@ function Profile(props) {
         try {
             const url =
                 process.env.NODE_ENV === 'production'
-                    ? `http://porto-app-server.herokuapp.com/profiles/${currentProfileId}`
-                    : `http://localhost:5000/profiles/${currentProfileId}`
+                    ? `http://porto-app-server.herokuapp.com/profiles/${mongoId}`
+                    : `http://localhost:5000/profiles/${mongoId}`
 
             axios.put(url, {
                 Project4Description: project4DescriptionEdited,
