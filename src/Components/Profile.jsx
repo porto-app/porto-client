@@ -92,6 +92,7 @@ function Profile(props) {
         let titleEdited = document.querySelector(".titleEdit").value
         let locationEdited = document.querySelector(".locationEdit").value
         let resumeEdited = document.querySelector(".resumeEdit").value
+        let urlPicEdited = document.querySelector(".urlPicEdit").value
 
         try {
             const url =
@@ -107,6 +108,7 @@ function Profile(props) {
                 title: titleEdited,
                 location: locationEdited,
                 urlResume: resumeEdited,
+                urlPic: urlPicEdited
             });
             console.log("Edit successful!");
         } catch (error) {
@@ -248,6 +250,10 @@ function Profile(props) {
                     <Form.Group className="mb-3" controlId="formGroupResume">
                         <Form.Label>Resume</Form.Label>
                         <Form.Control className="resumeEdit" defaultValue={activeProfile.urlResume}/>
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formGroupUrlPic">
+                        <Form.Label>Profile Pic URL</Form.Label>
+                        <Form.Control className="urlPicEdit" defaultValue={activeProfile.urlPic}/>
                     </Form.Group>
                 </Modal.Body>
                 <Modal.Footer>
