@@ -12,7 +12,7 @@ function Main(props) {
             <h3>Search For A Portfolio:</h3>
             <input type="text"
                    className="searchField"
-                   placeholder="Search by name or job title...."
+                   placeholder="Search by Name, Job Title, or Location...."
                    value={search}
                    onChange={(e) => setSearch(e.target.value)}
             />
