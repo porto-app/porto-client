@@ -89,6 +89,8 @@ function Profile(props) {
         let middleNameEdited = document.querySelector(".middleNameEdit").value
         let lastNameEdited = document.querySelector(".lastNameEdit").value
         let emailEdited = document.querySelector(".emailEdit").value
+        let titleEdited = document.querySelector(".titleEdit").value
+        let locationEdited = document.querySelector(".locationEdit").value
         let resumeEdited = document.querySelector(".resumeEdit").value
 
         try {
@@ -102,6 +104,8 @@ function Profile(props) {
                 middleName: middleNameEdited,
                 lastName: lastNameEdited,
                 email: emailEdited,
+                title: titleEdited,
+                location: locationEdited,
                 urlResume: resumeEdited,
             });
             console.log("Edit successful!");
@@ -232,6 +236,14 @@ function Profile(props) {
                     <Form.Group className="mb-3" controlId="formGroupEmail">
                         <Form.Label>Email</Form.Label>
                         <Form.Control className="emailEdit" defaultValue={activeProfile.email}/>
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formGroupTitle">
+                        <Form.Label>Title</Form.Label>
+                        <Form.Control className="titleEdit" defaultValue={activeProfile.title}/>
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formGroupLocation">
+                        <Form.Label>Location</Form.Label>
+                        <Form.Control className="locationEdit" defaultValue={activeProfile.location}/>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupResume">
                         <Form.Label>Resume</Form.Label>
