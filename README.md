@@ -33,7 +33,27 @@ In your terminal after cloning, run:
 
 We wanted to create an app that could provide a real-world, practical use today. Creating a portfolio-based web application allowed us create content and functionality that we know would be useful if launched right now. More than that, this would provide a place where users could really branch out and connect with other creators and add ease-of-access to their own work.
 
+## Planning
+<img width="600" src="./planning/calendar.png" alt=" ">
+
+
 ### Challenges
 
 - Upon starting this project, we decided that we would utilize Bootstrap styling for the frontend to help streamline the design across all components. While this provided a learning curve for everyone in the group, it was a HUGE time-saver after everything was all said and done.
 - Getting the searchbar functionality to return the data that we were searching for was a major hurdle because of the use of our own database. Connecting the backend to the frontend with the search feature provided a pretty big challenge.
+
+
+
+## Structuring of Components
+
+<img width="600" src="./planning/Wireframe1.png" alt=" ">
+<img width="600" src="./planning/Wireframe2.png" alt=" ">
+
+## Wireframing
+
+<img width="600" src="./planning/Wireframe3.png" alt=" ">
+<img width="600" src="./planning/Wireframe4.png" alt=" ">
+<img width="600" src="./planning/Wireframe5.png" alt=" ">
+
+
+
