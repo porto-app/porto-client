@@ -64,7 +64,7 @@ function About() {
 
                     <Col sm={12} md={3}>
                         <Card style={{ width: '15rem' }}>
-                            <Card.Img variant="top" src="https://ca.slack-edge.com/T0351JZQ0-U026PA6A874-beb0d6c699eb-512" />
+                            <Card.Img variant="top" src="https://i.imgur.com/SttwVPv.png" />
                         <Card.Body>
                             <Card.Title className="creatorName">Zak Rehbein</Card.Title>
                             <a href="https://github.com/zrehbein" target="_blank" rel="noreferrer"><Button variant="primary" className="githubButton">Github</Button></a>
