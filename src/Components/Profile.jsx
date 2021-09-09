@@ -45,16 +45,22 @@ function Profile(props) {
 
     useEffect(() => {
         getOneProfile()
+    }, [])
+
+    useEffect(() => {
+        getOneProfile()
     }, [show, p1show, p2show, p3show, p4show])
 
     const getOneProfile = async () => {
         console.log("Attempting to retrieve one profile...")
+        let mongoId = props.history.location.pathname.substring(9)
+        console.log(mongoId);
 
         try {
             const url =
                 process.env.NODE_ENV === 'production'
-                    ? `http://porto-app-server.herokuapp.com/profiles/${currentProfileId}`
-                    : `http://localhost:5000/profiles/${currentProfileId}`
+                    ? `http://porto-app-server.herokuapp.com/profiles/${mongoId}`
+                    : `http://localhost:5000/profiles/${mongoId}`
 
             const response = await axios(url)
             console.log("Response data: ", response);
