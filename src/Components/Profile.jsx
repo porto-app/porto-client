@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Button, Modal, Form, Card, Placeholder } from 'react-bootstrap';
+import { Button, Modal, Form, Card } from 'react-bootstrap';
 import { DataContext } from './DataContext';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -14,10 +14,17 @@ function Profile(props) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    // P1 Modal Commands
+    const [p1show, setP1Show] = useState(false);
+    const p1handleClose = () => setP1Show(false);
+    const p1handleShow = (e) => {
+        e.preventDefault();
+        setP1Show(true)
+    };
 
     useEffect(() => {
         getOneProfile()
-    }, [show])
+    }, [show, p1show])
 
     const getOneProfile = async () => {
         console.log("Attempting to retrieve one profile...")
@@ -71,7 +78,7 @@ function Profile(props) {
                 middleName: middleNameEdited,
                 lastName: lastNameEdited,
                 email: emailEdited,
-                urlResume: resumeEdited
+                urlResume: resumeEdited,
             });
             console.log("Edit successful!");
         } catch (error) {
@@ -79,6 +86,26 @@ function Profile(props) {
         }
     }
 
+    const submitP1Edit = async () => {
+
+        let project1DescriptionEdited = document.querySelector(".project1DescriptionEdit").value
+        let project1NameEdited = document.querySelector(".project1NameEdit").value
+
+        try {
+            const url =
+                process.env.NODE_ENV === 'production'
+                    ? `http://porto-app-server.herokuapp.com/profiles/${currentProfileId}`
+                    : `http://localhost:5000/profiles/${currentProfileId}`
+
+            axios.put(url, {
+                Project1Description: project1DescriptionEdited,
+                Project1Name: project1NameEdited
+            });
+            console.log("Edit successful!");
+        } catch (error) {
+            console.warn("Error when editing one profile.")
+        }
+    }
 
     return (
         <div className="profile-page">
@@ -89,23 +116,23 @@ function Profile(props) {
                 <Modal.Body>
                     <Form.Group className="mb-3" controlId="formGroupFirstName">
                         <Form.Label>First Name</Form.Label>
-                        <Form.Control className="firstNameEdit"/>
+                        <Form.Control className="firstNameEdit" value={activeProfile.firstName}/>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupMiddleName">
                         <Form.Label>Middle Name</Form.Label>
-                        <Form.Control className="middleNameEdit"/>
+                        <Form.Control className="middleNameEdit" value={activeProfile.middleName}/>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupLastName">
                         <Form.Label>Last Name</Form.Label>
-                        <Form.Control className="lastNameEdit"/>
+                        <Form.Control className="lastNameEdit" value={activeProfile.lastName}/>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupEmail">
                         <Form.Label>Email</Form.Label>
-                        <Form.Control className="emailEdit"/>
+                        <Form.Control className="emailEdit" value={activeProfile.email}/>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupResume">
                         <Form.Label>Resume</Form.Label>
-                        <Form.Control className="resumeEdit"/>
+                        <Form.Control className="resumeEdit" value={activeProfile.urlResume}/>
                     </Form.Group>
                 </Modal.Body>
                 <Modal.Footer>
@@ -118,6 +145,30 @@ function Profile(props) {
                 </Modal.Footer>
             </Modal>
 
+            <Modal show={p1show} onHide={p1handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Edit Project 1</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form.Group className="mb-3" controlId="formGroupFirstName">
+                        <Form.Label>Project 1 Name</Form.Label>
+                        <Form.Control className="project1NameEdit" defaultValue={activeProfile.Project1Name}/>
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formGroupFirstName">
+                        <Form.Label>Project 1 Description</Form.Label>
+                        <Form.Control className="project1DescriptionEdit" defaultValue={activeProfile.Project1Description}/>
+                    </Form.Group>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={p1handleClose}>Close</Button>
+                    <Button variant="primary" onClick={() => {
+                        submitP1Edit()
+                        p1handleClose()
+                        getOneProfile()
+                    }}>Save Changes</Button>
+                </Modal.Footer>
+            </Modal>
+
             <div className="myProfile">
                 <img className="pic" src={activeProfile.urlPic} alt="" />
                 <h2>
@@ -125,10 +176,10 @@ function Profile(props) {
                     <div className="title">Title: {activeProfile.title}</div>
                     <div className="location">Location: {activeProfile.location}</div>
                     <button className="contactButton">
-                        <a class="mailto" href={'mailto:' + activeProfile.email}>Contact</a>
+                        <a className="mailto" href={'mailto:' + activeProfile.email}>Contact</a>
                     </button>
                     <button className="resumeButton">
-                        <a class="Resume" target="_blank" rel="noreferrer" href={activeProfile.urlResume}>Resume</a>
+                        <a className="Resume" target="_blank" rel="noreferrer" href={activeProfile.urlResume}>Resume</a>
                     </button>
                 </h2>
             </div>
@@ -140,7 +191,7 @@ function Profile(props) {
                         <Card.Title>{activeProfile.Project1Name}</Card.Title>
                         <Card.Text>{activeProfile.Project1Description}</Card.Text>
                         <a href={activeProfile.Project1URL}>
-                            <Button variant="primary">Click here</Button>
+                            <Button variant="primary" onClick={p1handleShow}>Edit Project</Button>
                         </a>
                     </Card.Body>
                 </Card>
