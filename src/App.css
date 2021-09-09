@@ -7,6 +7,7 @@
 
 body {
   background-color: #f0f6fc;
+  margin-bottom: 80px;
 }
 
 /* LINK STYLING */
@@ -115,10 +116,6 @@ a:hover {
 
 /* ABOUT US PAGE STYLING */
 
-.aboutPage {
-  height: 80vh;
-}
-
 .aboutUs {
   margin: auto;
 }
@@ -166,10 +163,6 @@ a:hover {
 }
 
 /* USER PROFILE STYLING */
-
-.profile-page {
-  min-height: 130vh;
-}
 
 .contactButton {
   font-family: "Montserrat", sans-serif;
@@ -277,7 +270,6 @@ h2 {
 .preview-card {
   display: inline-block;
   padding: 2rem;
-  height: 60vh;
 }
 
 .previewButton {
@@ -290,7 +282,6 @@ h2 {
 
 .create-profile {
   text-align: left;
-  height: 230vh;
 }
 
 .create-profile-title {
