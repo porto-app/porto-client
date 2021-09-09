@@ -262,7 +262,7 @@ function CreateProfile() {
                     </Col>
                     </Row>
                     <Link to='/searchResults'>
-                        <Button variant="primary" type="submit" onClick={submitNewProfile}>Submit</Button>
+                        <Button variant="primary" type="submit" onSubmit={submitNewProfile}>Submit</Button>
                     </Link>
                 </Form>
             </Container>
