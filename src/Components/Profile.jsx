@@ -15,8 +15,6 @@ function Profile(props) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    console.log("currentProfile id is", currentProfileId);
-
     useEffect(() => {
         getOneProfile()
     }, [show])
@@ -81,10 +79,9 @@ function Profile(props) {
         }
     }
 
- 
+
     return (
         <div className="profile-page">
-
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Edit Profile</Modal.Title>
@@ -127,78 +124,73 @@ function Profile(props) {
                     <div className="name">Name: {activeProfile.firstName} {activeProfile.middleName} {activeProfile.lastName}</div>
                     <div className="title">Title: {activeProfile.title}</div>
                     <div className="location">Location: {activeProfile.location}</div>
-                    <button className="contactButton"><a class="mailto" href={'mailto:' + activeProfile.email}>Contact</a> </button>                 
-                    <button className="resumeButton"><a class="Resume" target="_blank" href={activeProfile.urlResume}>Resume</a> </button>
+                    <button className="contactButton">
+                        <a class="mailto" href={'mailto:' + activeProfile.email}>Contact</a>
+                    </button>
+                    <button className="resumeButton">
+                        <a class="Resume" target="_blank" rel="noreferrer" href={activeProfile.urlResume}>Resume</a>
+                    </button>
                 </h2>
             </div>
 
             <div className="projectsCard">
                 <Card style={{ width: '50rem' }}>
-                <Card.Img variant="top" src={activeProfile.Project1Img} />
-                <Card.Body>
-                <Card.Title>{activeProfile.Project1Name}</Card.Title>
-                <Card.Text>
-                    {activeProfile.Project1Description}
-            </Card.Text>
-            <a href={activeProfile.Project1URL}>
-            <Button variant="primary">Click here</Button>
-            </a>
-            </Card.Body>
-        </Card>
+                    <Card.Img variant="top" src={activeProfile.Project1Img} />
+                    <Card.Body>
+                        <Card.Title>{activeProfile.Project1Name}</Card.Title>
+                        <Card.Text>{activeProfile.Project1Description}</Card.Text>
+                        <a href={activeProfile.Project1URL}>
+                            <Button variant="primary">Click here</Button>
+                        </a>
+                    </Card.Body>
+                </Card>
+            </div>
+
+            <div className="projectsCard">
+                <Card style={{ width: '50rem' }}>
+                    <Card.Img variant="top" src={activeProfile.Project2Img} />
+                    <Card.Body>
+                        <Card.Title>{activeProfile.Project2Name}</Card.Title>
+                        <Card.Text>{activeProfile.Project2Description}</Card.Text>
+                        <a href={activeProfile.Project2URL}>
+                            <Button variant="primary">Click here</Button>
+                        </a>
+                    </Card.Body>
+                </Card>
+            </div>
+
+            <div className="projectsCard">
+                <Card style={{ width: '50rem' }}>
+                    <Card.Img variant="top" src={activeProfile.Project3Img} />
+                    <Card.Body>
+                        <Card.Title>{activeProfile.Project3Name}</Card.Title>
+                        <Card.Text>{activeProfile.Project3Description}</Card.Text>
+                        <a href={activeProfile.Project3URL}>
+                            <Button variant="primary">Click here</Button>
+                        </a>
+                    </Card.Body>
+                </Card>
+            </div>
+
+            <div className="projectsCard">
+                <Card style={{ width: '50rem' }}>
+                    <Card.Img variant="top" src={activeProfile.Project4Img} />
+                    <Card.Body>
+                        <Card.Title>{activeProfile.Project4Name}</Card.Title>
+                        <Card.Text>{activeProfile.Project4Description}</Card.Text>
+                        <a href={activeProfile.Project4URL}>
+                            <Button variant="primary">Click here</Button>
+                        </a>
+                    </Card.Body>
+                </Card>
+            </div>
+
+            <Button className="editButton" onClick={handleShow}>Edit Profile</Button>
+            <Link to={`/searchresults`} key={props.id}>
+                <Button className="deleteButton" onClick={handleDelete}>Delete Profile</Button>
+            </Link>
 
         </div>
-        <div className="projectsCard">
-                <Card style={{ width: '50rem' }}>
-                <Card.Img variant="top" src={activeProfile.Project2Img} />
-                <Card.Body>
-                <Card.Title>{activeProfile.Project2Name}</Card.Title>
-                <Card.Text>
-                {activeProfile.Project2Description} 
-            </Card.Text>
-            <a href={activeProfile.Project2URL}>
-            <Button variant="primary">Click here</Button>
-            </a>
-            </Card.Body>
-        </Card>
-        </div>
-        <div className="projectsCard">
-                <Card style={{ width: '50rem' }}>
-                <Card.Img variant="top" src={activeProfile.Project3Img} />
-                <Card.Body>
-                <Card.Title>{activeProfile.Project3Name}</Card.Title>
-                <Card.Text>
-                {activeProfile.Project3Description} 
-            </Card.Text>
-            <a href={activeProfile.Project3URL}>
-            <Button variant="primary">Click here</Button>
-            </a>
-            </Card.Body>
-        </Card>
-        </div>
-        <div className="projectsCard">
-                <Card style={{ width: '50rem' }}>
-                <Card.Img variant="top" src={activeProfile.Project4Img} />
-                <Card.Body>
-                <Card.Title>{activeProfile.Project4Name}</Card.Title>
-                <Card.Text>
-                {activeProfile.Project4Description}
-            </Card.Text>
-            <a href={activeProfile.Project4URL}>
-            <Button variant="primary">Click here</Button>
-            </a>
-            </Card.Body>
-        </Card>
-        </div>
-
-            <Button className="editButton" onClick={handleShow}>
-                    Edit Profile
-                </Button>
-                <Link to={`/searchresults`} key={props.id}>
-                    <Button className="deleteButton" onClick={handleDelete}>Delete Profile</Button>
-                </Link>
-
-       </div>
-      
   );
 }
 
