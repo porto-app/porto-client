@@ -379,6 +379,7 @@ function Profile(props) {
             <div className="myProfile">
                 <img className="pic" src={activeProfile.urlPic} alt="" />
                 <h2>
+                    <div className="profileAbout"><h3>Profile Info</h3></div>
                     <div className="name">Name: {activeProfile.firstName} {activeProfile.middleName} {activeProfile.lastName}</div>
                     <div className="title">Title: {activeProfile.title}</div>
                     <div className="location">Location: {activeProfile.location}</div>
@@ -391,6 +392,11 @@ function Profile(props) {
                 </h2>
             </div>
 
+                    <hr />
+                    <hr />
+
+                    <h2 className="currentProjectTitle">Current Projects</h2>
+
             <div className="projectsCard">
                 <Card style={{ width: '50rem' }}>
                     <Card.Img variant="top" src={activeProfile.Project1Img} />
@@ -399,6 +405,9 @@ function Profile(props) {
                         <Card.Text>{activeProfile.Project1Description}</Card.Text>
                         <a href={activeProfile.Project1URL}>
                             <Button variant="primary" onClick={p1handleShow}>Edit Project</Button>
+                        </a>
+                        <a href={activeProfile.Project1URL} target="_blank" rel="noreferrer">
+                            <Button varient="primary" className="projectButton">View Project</Button>
                         </a>
                     </Card.Body>
                 </Card>
@@ -413,6 +422,9 @@ function Profile(props) {
                         <a href={activeProfile.Project2URL}>
                             <Button variant="primary" onClick={p2handleShow}>Edit Project</Button>
                         </a>
+                        <a href={activeProfile.Project1URL} target="_blank" rel="noreferrer">
+                            <Button varient="primary" className="projectButton">View Project</Button>
+                        </a>
                     </Card.Body>
                 </Card>
             </div>
@@ -425,6 +437,9 @@ function Profile(props) {
                         <Card.Text>{activeProfile.Project3Description}</Card.Text>
                         <a href={activeProfile.Project3URL}>
                             <Button variant="primary" onClick={p3handleShow}>Edit Project</Button>
+                        </a>
+                        <a href={activeProfile.Project1URL} target="_blank" rel="noreferrer">
+                            <Button varient="primary" className="projectButton">View Project</Button>
                         </a>
                     </Card.Body>
                 </Card>
@@ -439,15 +454,18 @@ function Profile(props) {
                         <a href={activeProfile.Project4URL}>
                             <Button variant="primary" onClick={p4handleShow}>Edit Project</Button>
                         </a>
+                        <a href={activeProfile.Project1URL} target="_blank" rel="noreferrer">
+                            <Button varient="primary" className="projectButton">View Project</Button>
+                        </a>
                     </Card.Body>
                 </Card>
             </div>
-
+            <div>
             <Button className="editButton" onClick={handleShow}>Edit Profile</Button>
             <Link to={`/searchresults`} key={props.id}>
                 <Button className="deleteButton" onClick={handleDelete}>Delete Profile</Button>
             </Link>
-
+            </div>
         </div>
   );
 }
