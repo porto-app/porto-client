@@ -4,7 +4,7 @@ import { Button, Form, Container, Col, Row } from 'react-bootstrap'
 import axios from 'axios';
 
 
-function CreateProfile() {
+function CreateProfile(props) {
 
     const [email, setEmail] = useState("")
     const [firstName, setFirstName] = useState("")
@@ -33,12 +33,15 @@ function CreateProfile() {
 
 
 
-    const submitNewProfile = async (e) => {
-        e.preventDefault();
+    const submitNewProfile = async () => {
         console.log("Attempting to submit new profile...")
-        console.log("email", email);
 
-        axios.post('http://localhost:5000/profiles', {
+        const url =
+            process.env.NODE_ENV === 'production'
+                ? `http://porto-app-server.herokuapp.com/profiles`
+                : `http://localhost:5000/profiles`
+
+        axios.post(url, {
             email,
             firstName,
             middleName,
@@ -154,6 +157,11 @@ function CreateProfile() {
         setProject4Img(e.target.value)
     }
 
+    const routeToSearch = () => {
+        props.history.push('/searchresults')
+        submitNewProfile();
+    }
+
     return (
         <div className="create-profile">
             <h3 className="create-profile-title">Create a New Profile!</h3>
@@ -262,7 +270,7 @@ function CreateProfile() {
                     </Col>
                     </Row>
                     <Link to='/searchResults'>
-                        <Button variant="primary" type="submit" onSubmit={submitNewProfile}>Submit</Button>
+                        <Button variant="primary" type="submit" onClick={routeToSearch}>Submit</Button>
                     </Link>
                 </Form>
             </Container>
