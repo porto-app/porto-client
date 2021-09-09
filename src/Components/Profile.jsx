@@ -90,6 +90,8 @@ function Profile(props) {
 
         let project1DescriptionEdited = document.querySelector(".project1DescriptionEdit").value
         let project1NameEdited = document.querySelector(".project1NameEdit").value
+        let project1ImgEdited = document.querySelector(".project1ImgEdit").value
+        let project1URLEdited = document.querySelector(".project1URLEdit").value
 
         try {
             const url =
@@ -99,7 +101,9 @@ function Profile(props) {
 
             axios.put(url, {
                 Project1Description: project1DescriptionEdited,
-                Project1Name: project1NameEdited
+                Project1Name: project1NameEdited,
+                Project1Img: project1ImgEdited,
+                Project1URL: project1URLEdited
             });
             console.log("Edit successful!");
         } catch (error) {
@@ -116,23 +120,23 @@ function Profile(props) {
                 <Modal.Body>
                     <Form.Group className="mb-3" controlId="formGroupFirstName">
                         <Form.Label>First Name</Form.Label>
-                        <Form.Control className="firstNameEdit" value={activeProfile.firstName}/>
+                        <Form.Control className="firstNameEdit" defaultValue={activeProfile.firstName}/>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupMiddleName">
                         <Form.Label>Middle Name</Form.Label>
-                        <Form.Control className="middleNameEdit" value={activeProfile.middleName}/>
+                        <Form.Control className="middleNameEdit" defaultValue={activeProfile.middleName}/>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupLastName">
                         <Form.Label>Last Name</Form.Label>
-                        <Form.Control className="lastNameEdit" value={activeProfile.lastName}/>
+                        <Form.Control className="lastNameEdit" defaultValue={activeProfile.lastName}/>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupEmail">
                         <Form.Label>Email</Form.Label>
-                        <Form.Control className="emailEdit" value={activeProfile.email}/>
+                        <Form.Control className="emailEdit" defaultValue={activeProfile.email}/>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formGroupResume">
                         <Form.Label>Resume</Form.Label>
-                        <Form.Control className="resumeEdit" value={activeProfile.urlResume}/>
+                        <Form.Control className="resumeEdit" defaultValue={activeProfile.urlResume}/>
                     </Form.Group>
                 </Modal.Body>
                 <Modal.Footer>
@@ -150,13 +154,21 @@ function Profile(props) {
                     <Modal.Title>Edit Project 1</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form.Group className="mb-3" controlId="formGroupFirstName">
+                    <Form.Group className="mb-3" controlId="formGroupP1Name">
                         <Form.Label>Project 1 Name</Form.Label>
                         <Form.Control className="project1NameEdit" defaultValue={activeProfile.Project1Name}/>
                     </Form.Group>
-                    <Form.Group className="mb-3" controlId="formGroupFirstName">
+                    <Form.Group className="mb-3" controlId="formGroupP1Desc">
                         <Form.Label>Project 1 Description</Form.Label>
                         <Form.Control className="project1DescriptionEdit" defaultValue={activeProfile.Project1Description}/>
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formGroupP1Image">
+                        <Form.Label>Project 1 Image URL</Form.Label>
+                        <Form.Control className="project1ImgEdit" defaultValue={activeProfile.Project1Img}/>
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formGroupP1Url">
+                        <Form.Label>Project 1 Deployed URL</Form.Label>
+                        <Form.Control className="project1URLEdit" defaultValue={activeProfile.Project1URL}/>
                     </Form.Group>
                 </Modal.Body>
                 <Modal.Footer>
